@@ -9,8 +9,27 @@ import java.net.UnknownHostException;
 /**
  * Created by elien on 11.04.2017.
  */
-public class Main {
-    public static void main(String[] zero){
-        projet.Client monClient = new projet.Client();
+
+import com.sun.security.ntlm.NTLMException;
+import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
+
+public class Main extends Application {
+
+    @Override
+    public void start(Stage primaryStage) throws Exception{
+//        Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
+//        primaryStage.setTitle("Hello World");
+//        primaryStage.setScene(new Scene(root, 300, 275));
+//        primaryStage.show();
+    }
+
+
+    public static void main(String[] args) throws NTLMException {
+        //launch(args);
+        Client monClient = new Client();
     }
 }
