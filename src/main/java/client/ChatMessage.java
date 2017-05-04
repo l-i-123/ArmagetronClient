@@ -13,7 +13,7 @@ public class ChatMessage implements Serializable {
     //MESS pour un message normal
     //LOGOUT pour la déconnexion
 
-    static final int WHOIS = 0, MESS = 1, LOGOUT = 2;
+    public static final int WHOIS = 0, MESS = 1, LOGOUT = 2;
     private int type;
     private String message;
 
