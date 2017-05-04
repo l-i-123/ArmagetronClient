@@ -3,6 +3,7 @@ package sample;
 import client.Client;
 import data.ClientStatData;
 import data.ConfigData;
+import data.PlayerData;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
@@ -11,6 +12,7 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.GridPane;
 
 import java.awt.*;
+import java.util.UUID;
 
 public class Controller {
 
@@ -21,6 +23,9 @@ public class Controller {
     private static int y;
 
     private Client client;
+
+    //private UUID uuid = UUID.random uuid
+    private PlayerData player = new PlayerData();
 
     // if it is for connection
     private boolean connected;
@@ -67,6 +72,8 @@ public class Controller {
             client.sendData(new ClientStatData(ClientStatData.TURN_RIGHT));
         }
     }
+
+
 
     private Node getNodeByRowColumnIndex (final int row, final int column) {
         Node result = null;

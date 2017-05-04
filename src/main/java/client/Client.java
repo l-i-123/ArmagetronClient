@@ -1,6 +1,6 @@
 package client;
 
-import data.ConfigData;
+import data.*;
 import sample.Controller;
 
 import java.io.IOException;
@@ -20,7 +20,7 @@ public class Client{
     private Socket socket;
 
     //en cas d'utilisation de l'interface graphqiue
-    private ClientGUI clientGui;
+   // private ClientGUI clientGui;
 
     private String serverAdress;
     //username et port de connexion
@@ -35,15 +35,6 @@ public class Client{
         this.port = port;
         this.username = username;
     }
-
-    //constructeur pour l'interface graphique
-    public Client(String server, int port, String username, ClientGUI clientGui){
-        this.serverAdress = server;
-        this.port = port;
-        this.username = username;
-        //vaut null si en mode console
-        this.clientGui = clientGui;
-    }//Client
 
     public Client(String server, int port, String username, Controller controller){
         this.serverAdress = server;
@@ -65,62 +56,59 @@ public class Client{
       Le port par default est 24000
       Si pas de aucun username n'est spécifié "gamer" est utilisé par defaut
     */
-    public static void main(String[] args){
-        int port = 1500;
-        String serverAdress = "localhost";
-        String userName = "gamer";
-
-        switch(args.length){
-            case 3:
-                serverAdress = args[2];
-            case 2:
-                try{
-                    port = new Integer(args[1]);
-                }catch(Exception e){
-                    System.out.println("Mauvais numéro de port");
-                    System.out.println("La commande est > java Client [login] [port] [serverAdresse]");
-                    return;
-                }
-            case 1:
-                userName = args[0];
-            case 0:
-                break;
-            default:
-                System.out.println("La commande est > java Client [login] [port] [serverAdresse]");
-                return;
-        }
-
-        //Création du Client
-        Client client = new Client(serverAdress, port, userName);
-        //on test la connexion au server
-        if(!client.start()){
-            return;
-        }
-
-        //attente de message de l'utilisateur
-        Scanner scanner = new Scanner(System.in);
-        //boucle infinie pour l'attente des messages
-        while (true){
-            System.out.println(">");
-            //lecture des messages
-            String message = scanner.nextLine();
-
-            //déconnexion si message = LOGOUT
-            if(message.equalsIgnoreCase("LOGOUT")){
-                client.sendMessage(new ChatMessage(ChatMessage.LOGOUT, ""));
-                //break pour déconnecter
-                break;
-            }
-            else if(message.equalsIgnoreCase("WHOIS")){
-                client.sendMessage(new ChatMessage(ChatMessage.WHOIS,""));
-            }
-            else{
-                client.sendMessage(new ChatMessage(ChatMessage.MESS, message));
-            }
-        }
-        //fin et déconnexion
-        client.disconnect();
-    }
+//    public static void main(String[] args){
+//        int port = 1500;
+//        String serverAdress = "localhost";
+//        String userName = "gamer";
+//
+//        switch(args.length){
+//            case 3:
+//                serverAdress = args[2];
+//            case 2:
+//                try{
+//                    port = new Integer(args[1]);
+//                }catch(Exception e){
+//                    System.out.println("Mauvais numéro de port");
+//                    System.out.println("La commande est > java Client [login] [port] [serverAdresse]");
+//                    return;
+//                }
+//            case 1:
+//                userName = args[0];
+//            case 0:
+//                break;
+//            default:
+//                System.out.println("La commande est > java Client [login] [port] [serverAdresse]");
+//                return;
+//        }
+//
+//        //Création du Client
+//        Client client = new Client(serverAdress, port, userName);
+//        //on test la connexion au server
+//
+//        //attente de message de l'utilisateur
+//        Scanner scanner = new Scanner(System.in);
+//        //boucle infinie pour l'attente des messages
+//        while (true){
+//            System.out.println(">");
+//            //lecture des messages
+//            String message = scanner.nextLine();
+//
+//            //déconnexion si message = LOGOUT
+//            if(message.equalsIgnoreCase("LOGOUT")){
+//                //client.sendMessage(new ChatMessage(ChatMessage.LOGOUT, ""));
+//                //break pour déconnecter
+//                break;
+//            }
+//            else if(message.equalsIgnoreCase("WHOIS")){
+//                //client.sendMessage(new ChatMessage(ChatMessage.WHOIS,""));
+//            }
+//            else{
+//                //client.sendMessage(new ChatMessage(ChatMessage.MESS, message));
+//            }
+//        }
+//        //fin et déconnexion
+//        client.disconnect();
+//    }
 
     public boolean start(){
         //tentative de connexion au server
@@ -161,11 +149,11 @@ public class Client{
 
     private void display(String message){
         //ecrit dans la console
-        if(clientGui == null){
-            System.out.println(message);
-        }else{
-            clientGui.append(message + "\n"); //ecrit dans un jText
-        }
+//        if(clientGui == null){
+//            System.out.println(message);
+//        }else{
+//            clientGui.append(message + "\n"); //ecrit dans un jText
+//        }
     }//display
 
     //envoi du message au server
@@ -199,9 +187,9 @@ public class Client{
             if(socket != null)
                 socket.close();
         }catch(Exception e){}
-        if(clientGui != null){
-            clientGui.connectionFailed();
-        }
+//        if(clientGui != null){
+//            clientGui.connectionFailed();
+//        }
     }//disconnect
 
     class ListenFromServer extends Thread{
@@ -211,27 +199,29 @@ public class Client{
 
                     Object o = input.readObject();
 
-                    if(o instanceof ChatMessage) {
-                        String message = (String) o;
-
-                        if (clientGui == null){
-                            System.out.println(message);
-                            System.out.println("> ");
-                        }else {
-                            clientGui.append(message);
-                        }
-                    }
-                    else if(o instanceof ConfigData) {
+                    if(o instanceof ConfigData) {
                         controller.setConfigData((ConfigData)o);
+                    }
+                    else if (o instanceof ClientStatData){
+
+                    }
+                    else if(o instanceof GameData){
+
+                    }
+                    else if(o instanceof GameStatData){
+
+                    }
+                    else if(o instanceof PlayerData){
+
                     }
 
 
                 }catch (IOException e){
                     display("La connexion est fermée: ");
                     e.printStackTrace();
-                    if(clientGui != null){
-                        clientGui.connectionFailed();
-                    }
+//                    if(clientGui != null){
+//                        clientGui.connectionFailed();
+//                    }
                     break;
                 }catch(ClassNotFoundException e2){}
             }
