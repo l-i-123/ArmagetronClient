@@ -52,30 +52,20 @@ public class Controller {
     public void setConfigData(ConfigData configData) {
         this.x = configData.getStartPosition().x;
         this.y = configData.getStartPosition().y;
-        getNodeByRowColumnIndex(x, y).setStyle("-fx-background-color: green;");
+        String hex = Integer.toHexString(configData.getColor().getRGB() & 0xffffff);
+        hex ="#" + hex;
+        getNodeByRowColumnIndex(x, y).setStyle("-fx-background-color: " + hex + ";");
     }
 
     public void onKeyPressed(KeyEvent keyEvent) {
-        if(keyEvent.getCode() == KeyCode.UP) {
-            x--;
-            client.sendData(new ClientStatData(ClientStatData.TURN_LEFT));
-        }
-        else if(keyEvent.getCode() == KeyCode.DOWN) {
-            x++;
-            client.sendData(new ClientStatData(ClientStatData.LOGIN));
-        }
-        else if(keyEvent.getCode() == KeyCode.LEFT) {
+        if(keyEvent.getCode() == KeyCode.LEFT) {
             y--;
-            client.sendData(new ClientStatData(ClientStatData.LOGOUT));
+            client.sendData(new ClientStatData(ClientStatData.TURN_LEFT));
         }
         else if(keyEvent.getCode() == KeyCode.RIGHT) {
             y++;
+            client.sendData(new ClientStatData(ClientStatData.TURN_RIGHT));
         }
-        else if(keyEvent.getCode() == KeyCode.S) {
-            setConfigData(new ConfigData(new Point(10, 15), Color.green));
-        }
-
-        getNodeByRowColumnIndex(x, y).setStyle("-fx-background-color: green;");
     }
 
     private Node getNodeByRowColumnIndex (final int row, final int column) {

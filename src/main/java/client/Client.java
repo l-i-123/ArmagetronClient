@@ -3,7 +3,6 @@ package client;
 import data.ConfigData;
 import sample.Controller;
 
-import javax.naming.ldap.Control;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
@@ -224,7 +223,6 @@ public class Client{
                     }
                     else if(o instanceof ConfigData) {
                         controller.setConfigData((ConfigData)o);
-                        display("Configuration recue");
                     }
 
 
