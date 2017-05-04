@@ -1,5 +1,9 @@
 package client;
 
+import data.ConfigData;
+import sample.Controller;
+
+import javax.naming.ldap.Control;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
@@ -24,18 +28,31 @@ public class Client{
     private String username;
     private int port;
 
+    private Controller controller;
+
     //Constructeur pour l'interface console
-    Client(String server, int port, String username){
-        this(server,port,username,null);
+    public Client(String server, int port, String username){
+        this.serverAdress = server;
+        this.port = port;
+        this.username = username;
     }
 
     //constructeur pour l'interface graphique
-    Client(String server, int port, String username, ClientGUI clientGui){
+    public Client(String server, int port, String username, ClientGUI clientGui){
         this.serverAdress = server;
         this.port = port;
         this.username = username;
         //vaut null si en mode console
         this.clientGui = clientGui;
+    }//Client
+
+    public Client(String server, int port, String username, Controller controller){
+        this.serverAdress = server;
+        this.port = port;
+        this.username = username;
+        //vaut null si en mode console
+        this.controller = controller;
+        this.controller.setClient(this);
     }//Client
 
 
@@ -50,7 +67,7 @@ public class Client{
       Si pas de aucun username n'est spécifié "gamer" est utilisé par defaut
     */
     public static void main(String[] args){
-        int port = 24000;
+        int port = 1500;
         String serverAdress = "localhost";
         String userName = "gamer";
 
@@ -153,7 +170,15 @@ public class Client{
     }//display
 
     //envoi du message au server
-    void sendMessage(ChatMessage msg){
+    public void sendMessage(Object msg){
+        try {
+            output.writeObject(msg);
+        }catch (IOException e){
+            display("Exception lors de l'envoi au serveur du message :" + e);
+        }
+    }
+
+    public void sendData(Object msg){
         try {
             output.writeObject(msg);
         }catch (IOException e){
@@ -184,15 +209,28 @@ public class Client{
         public void run(){
             while(true){
                 try {
-                    String message = (String) input.readObject();
-                    if (clientGui == null){
-                        System.out.println(message);
-                        System.out.println("> ");
-                    }else {
-                        clientGui.append(message);
+
+                    Object o = input.readObject();
+
+                    if(o instanceof ChatMessage) {
+                        String message = (String) o;
+
+                        if (clientGui == null){
+                            System.out.println(message);
+                            System.out.println("> ");
+                        }else {
+                            clientGui.append(message);
+                        }
                     }
+                    else if(o instanceof ConfigData) {
+                        controller.setConfigData((ConfigData)o);
+                        display("Configuration recue");
+                    }
+
+
                 }catch (IOException e){
-                    display("La connexion est fermée: " + e);
+                    display("La connexion est fermée: ");
+                    e.printStackTrace();
                     if(clientGui != null){
                         clientGui.connectionFailed();
                     }

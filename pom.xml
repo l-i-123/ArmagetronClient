@@ -5,12 +5,20 @@
     <groupId>armagetron.client</groupId>
     <artifactId>ArmagetronClient</artifactId>
     <version>0.1</version>
+
     <dependencies>
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
             <version>4.11</version>
             <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>armagetron.share</groupId>
+            <artifactId>ArmagetronShare</artifactId>
+            <version>1.0</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/share/ArmagetronShare.jar</systemPath>
         </dependency>
     </dependencies>
 
@@ -19,12 +27,16 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-jar-plugin</artifactId>
+                <version>3.0.2</version>
                 <configuration>
                     <archive>
                         <manifest>
                             <addClasspath>true</addClasspath>
-                            <mainClass>client.ClientGUI</mainClass>
+                            <mainClass>sample.Main</mainClass>
                         </manifest>
+                        <manifestEntries>
+                            <Class-Path>ArmagetronShare.jar</Class-Path>
+                        </manifestEntries>
                     </archive>
                 </configuration>
             </plugin>

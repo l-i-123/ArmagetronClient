@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="ArmagetronShare (2)">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/src/share/ArmagetronShare.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
