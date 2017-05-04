@@ -19,9 +19,6 @@ public class Client{
     private ObjectOutputStream output;
     private Socket socket;
 
-    //en cas d'utilisation de l'interface graphqiue
-    private ClientGUI clientGui;
-
     private String serverAdress;
     //username et port de connexion
     private String username;
@@ -36,14 +33,6 @@ public class Client{
         this.username = username;
     }
 
-    //constructeur pour l'interface graphique
-    public Client(String server, int port, String username, ClientGUI clientGui){
-        this.serverAdress = server;
-        this.port = port;
-        this.username = username;
-        //vaut null si en mode console
-        this.clientGui = clientGui;
-    }//Client
 
     public Client(String server, int port, String username, Controller controller){
         this.serverAdress = server;
@@ -99,26 +88,7 @@ public class Client{
 
         //attente de message de l'utilisateur
         Scanner scanner = new Scanner(System.in);
-        //boucle infinie pour l'attente des messages
-        while (true){
-            System.out.println(">");
-            //lecture des messages
-            String message = scanner.nextLine();
 
-            //déconnexion si message = LOGOUT
-            if(message.equalsIgnoreCase("LOGOUT")){
-                client.sendMessage(new ChatMessage(ChatMessage.LOGOUT, ""));
-                //break pour déconnecter
-                break;
-            }
-            else if(message.equalsIgnoreCase("WHOIS")){
-                client.sendMessage(new ChatMessage(ChatMessage.WHOIS,""));
-            }
-            else{
-                client.sendMessage(new ChatMessage(ChatMessage.MESS, message));
-            }
-        }
-        //fin et déconnexion
         client.disconnect();
     }
 
@@ -160,12 +130,6 @@ public class Client{
 
 
     private void display(String message){
-        //ecrit dans la console
-        if(clientGui == null){
-            System.out.println(message);
-        }else{
-            clientGui.append(message + "\n"); //ecrit dans un jText
-        }
     }//display
 
     //envoi du message au server
@@ -199,9 +163,6 @@ public class Client{
             if(socket != null)
                 socket.close();
         }catch(Exception e){}
-        if(clientGui != null){
-            clientGui.connectionFailed();
-        }
     }//disconnect
 
     class ListenFromServer extends Thread{
@@ -211,27 +172,9 @@ public class Client{
 
                     Object o = input.readObject();
 
-                    if(o instanceof ChatMessage) {
-                        String message = (String) o;
-
-                        if (clientGui == null){
-                            System.out.println(message);
-                            System.out.println("> ");
-                        }else {
-                            clientGui.append(message);
-                        }
-                    }
-                    else if(o instanceof ConfigData) {
-                        controller.setConfigData((ConfigData)o);
-                    }
-
-
                 }catch (IOException e){
                     display("La connexion est fermée: ");
                     e.printStackTrace();
-                    if(clientGui != null){
-                        clientGui.connectionFailed();
-                    }
                     break;
                 }catch(ClassNotFoundException e2){}
             }

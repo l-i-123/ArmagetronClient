@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/ArmagetronClient.iml" filepath="$PROJECT_DIR$/ArmagetronClient.iml" />
       <module fileurl="file://$PROJECT_DIR$/GEN_Armagetron_Client.iml" filepath="$PROJECT_DIR$/GEN_Armagetron_Client.iml" />
     </modules>
   </component>
