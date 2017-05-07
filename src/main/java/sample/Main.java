@@ -14,13 +14,11 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception{
         FXMLLoader loader = new FXMLLoader(getClass().getResource("sample.fxml"));
         Parent root = loader.load();
-        Controller controller = (Controller) loader.getController();
 
         primaryStage.setTitle("Hello World");
         primaryStage.setScene(new Scene(root));
         primaryStage.show();
         root.getScene().getRoot().requestFocus();
-        controller.connect();
     }
 
     public static void main(String[] args) {
