@@ -10,17 +10,18 @@ import java.util.Scanner;
 
 public class Main extends Application {
 
+
     @Override
     public void start(Stage primaryStage) throws Exception{
         FXMLLoader loader = new FXMLLoader(getClass().getResource("sample.fxml"));
         Parent root = loader.load();
-        Controller controller = (Controller) loader.getController();
 
         primaryStage.setTitle("Hello World");
         primaryStage.setScene(new Scene(root));
         primaryStage.show();
         root.getScene().getRoot().requestFocus();
-        controller.connect();
+        Controller controller = loader.getController();
+        controller.init();
     }
 
     public static void main(String[] args) {
