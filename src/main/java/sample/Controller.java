@@ -74,11 +74,15 @@ public class Controller {
             }
         }
         if(o instanceof GameData) {
-            this.game.setPlayers(((GameData) o).getPlayersData());
-            this.updatePosition();
+            synchronized (game) {
+                this.game.setPlayers(((GameData) o).getPlayersData());
+                this.updatePosition();
+            }
         }
         if(o instanceof PlayerData) {
-            this.player = new Player(((PlayerData) o).getUniqueId(), ((PlayerData) o).getPosition(), ((PlayerData) o).getColor(), ((PlayerData) o).getUsername(), ((PlayerData) o).isAlive());
+            synchronized (game) {
+                this.player = new Player(((PlayerData) o).getUniqueId(), ((PlayerData) o).getPosition(), ((PlayerData) o).getColor(), ((PlayerData) o).getUsername(), ((PlayerData) o).isAlive());
+            }
         }
     }
 
@@ -105,6 +109,6 @@ public class Controller {
     }
 
     private String convertColortoHex(Color color) {
-        return  "#" + Integer.toHexString(color.getRGB() & 0xffffff);
+        return String.format("#%06x", color.getRGB() & 0x00FFFFFF);
     }
 }

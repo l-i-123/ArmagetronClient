@@ -54,7 +54,7 @@ public class Client implements Runnable {
 
         this.thread.start();
 
-        this.sendData(new ConnectionData(this.username, new Color(Util.rand.nextFloat(), Util.rand.nextFloat(), Util.rand.nextFloat())));
+        this.sendData(new ConnectionData(this.username, new Color(Util.rand.nextInt(255), Util.rand.nextInt(255), Util.rand.nextInt(255))));
     }
 
     public void sendData(Object o) {
