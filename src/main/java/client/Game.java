@@ -22,7 +22,7 @@ public class Game {
     public void setPlayers(ArrayList<PlayerData> playersData) {
         this.players.clear();
         for (PlayerData playerData : playersData) {
-            this.players.add(new Player(playerData.getUniqueId(), playerData.getPosition(), playerData.getColor(), playerData.getUsername()));
+            this.players.add(new Player(playerData.getUniqueId(), playerData.getPosition(), playerData.getColor(), playerData.getUsername(), playerData.isAlive()));
         }
     }
 }

@@ -16,6 +16,7 @@ import javafx.scene.layout.GridPane;
 
 import javax.rmi.CORBA.Util;
 import java.awt.*;
+import java.util.Iterator;
 
 public class Controller {
 
@@ -44,13 +45,19 @@ public class Controller {
         }
     }
 
-    private synchronized Node getNodeByRowColumnIndex (final int row, final int column) {
+    private Node getNodeByRowColumnIndex (final int row, final int column) {
         Node result = null;
 
         try {
-            for (Node node : gameGrid.getChildren()) {
-                if(gameGrid.getRowIndex(node) == row && gameGrid.getColumnIndex(node) == column) {
+            /*for (Node node : gameGrid.getChildren()) {
+                if (gameGrid.getRowIndex(node) == row && gameGrid.getColumnIndex(node) == column) {
                     result = node;
+                    break;
+                }
+            }*/
+            for (Iterator<Node> it = gameGrid.getChildren().iterator(); it.hasNext(); ) {
+                if (gameGrid.getRowIndex(it.next()) == row && gameGrid.getColumnIndex(it.next()) == column) {
+                    result = it.next();
                     break;
                 }
             }
@@ -77,7 +84,7 @@ public class Controller {
             this.updatePosition();
         }
         if(o instanceof PlayerData) {
-            this.player = new Player(((PlayerData) o).getUniqueId(), ((PlayerData) o).getPosition(), ((PlayerData) o).getColor(), ((PlayerData) o).getUsername());
+            this.player = new Player(((PlayerData) o).getUniqueId(), ((PlayerData) o).getPosition(), ((PlayerData) o).getColor(), ((PlayerData) o).getUsername(), ((PlayerData) o).isAlive());
         }
     }
 
@@ -86,11 +93,18 @@ public class Controller {
     }
 
     private void updatePosition() {
-        synchronized (this.game) {
+        synchronized (this.gameGrid) {
             for (Player player : game.getPlayers()) {
                 Node n = getNodeByRowColumnIndex(player.getPosition().x, player.getPosition().y);
                 if (n != null) {
-                    n.setStyle("-fx-background-color: " + this.convertColortoHex(player.getColor()) + ";");
+                    if(player.isAlive()) {
+                        n.setStyle("-fx-background-color: " + this.convertColortoHex(player.getColor()) + ";");
+                    }
+                    else {
+                        n.setStyle("-fx-background-image: url('/img/skull.png');" +
+                                    "-fx-background-position: center center;" +
+                                    "-fx-background-repeat: stretch;" );
+                    }
                 }
             }
         }

@@ -11,12 +11,14 @@ public class Player {
     private Point position;
     private Color color;
     private String username;
+    private boolean isAlive;
 
-    public Player(UUID uniqueId,Point position, Color color, String username) {
+    public Player(UUID uniqueId,Point position, Color color, String username, boolean isAlive) {
         this.uniqueId = uniqueId;
         this.position = position;
         this.color = color;
         this.username = username;
+        this.isAlive = isAlive;
     }
 
     public UUID getUniqueId() {
@@ -33,5 +35,9 @@ public class Player {
 
     public Point getPosition() {
         return position;
+    }
+
+    public boolean isAlive() {
+        return isAlive;
     }
 }
