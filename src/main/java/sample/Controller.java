@@ -49,15 +49,9 @@ public class Controller {
         Node result = null;
 
         try {
-            /*for (Node node : gameGrid.getChildren()) {
+            for (Node node : gameGrid.getChildren()) {
                 if (gameGrid.getRowIndex(node) == row && gameGrid.getColumnIndex(node) == column) {
                     result = node;
-                    break;
-                }
-            }*/
-            for (Iterator<Node> it = gameGrid.getChildren().iterator(); it.hasNext(); ) {
-                if (gameGrid.getRowIndex(it.next()) == row && gameGrid.getColumnIndex(it.next()) == column) {
-                    result = it.next();
                     break;
                 }
             }
