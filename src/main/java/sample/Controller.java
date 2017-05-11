@@ -14,9 +14,7 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.GridPane;
 
-import javax.rmi.CORBA.Util;
 import java.awt.*;
-import java.util.Iterator;
 
 public class Controller {
 
@@ -27,7 +25,12 @@ public class Controller {
     private Player player;
     private Game game;
 
-    public Controller() {
+    /*public Controller() {
+        this.game = new Game();
+        this.connect();
+    }*/
+
+    public void init() {
         this.game = new Game();
         this.connect();
     }
