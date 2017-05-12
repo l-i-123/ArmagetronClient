@@ -3,16 +3,21 @@ package sample;
 import client.Client;
 import client.Game;
 import client.Player;
+import com.sun.org.apache.xpath.internal.SourceTree;
 import data.ClientStatData;
 
 import data.GameData;
 import data.GameStatData;
 import data.PlayerData;
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.Pane;
+import javafx.scene.control.TextField;
+import javafx.scene.control.Label;
 
 import java.awt.*;
 
@@ -24,6 +29,20 @@ public class Controller {
     private Client client;
     private Player player;
     private Game game;
+
+    private Boolean setPlayerData = false;
+
+    @FXML
+    private Pane color;
+
+    @FXML
+    private Label nom;
+
+    @FXML
+    private Label timer;
+
+    @FXML
+    private Label classement;
 
     /*public Controller() {
         this.game = new Game();
@@ -42,9 +61,11 @@ public class Controller {
     public void onKeyPressed(KeyEvent keyEvent) {
         if(keyEvent.getCode() == KeyCode.LEFT) {
             client.sendData(new ClientStatData(ClientStatData.TURN_LEFT, player.getUniqueId()));
+            System.out.println("clique gauche");
         }
         else if(keyEvent.getCode() == KeyCode.RIGHT) {
             client.sendData(new ClientStatData(ClientStatData.TURN_RIGHT, player.getUniqueId()));
+            System.out.println("Clique droit");
         }
     }
 
@@ -83,9 +104,13 @@ public class Controller {
             }
         }
         if(o instanceof PlayerData) {
-            synchronized (game) {
-                this.player = new Player(((PlayerData) o).getUniqueId(), ((PlayerData) o).getPosition(), ((PlayerData) o).getColor(), ((PlayerData) o).getUsername(), ((PlayerData) o).isAlive());
-            }
+            this.player = new Player(((PlayerData) o).getUniqueId(), ((PlayerData) o).getPosition(), ((PlayerData) o).getColor(), ((PlayerData) o).getUsername(), ((PlayerData) o).isAlive());
+
+                //Affiche la couleur du joueur sur l'interface graphique
+            Platform.runLater(()->color.setStyle("-fx-background-color: " + this.convertColortoHex(player.getColor()) + ";"));
+
+                //Afficher le nom du joueur dans l'interface graphique
+            Platform.runLater(()->nom.setText(this.player.getUsername()));
         }
     }
 
