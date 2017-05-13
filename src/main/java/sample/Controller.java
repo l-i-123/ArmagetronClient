@@ -16,10 +16,14 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
-import javafx.scene.control.TextField;
 import javafx.scene.control.Label;
+import javafx.scene.paint.Paint;
+import javafx.scene.shape.Circle;
 
 import java.awt.*;
+import java.awt.Color;
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
 
 public class Controller {
 
@@ -29,11 +33,10 @@ public class Controller {
     private Client client;
     private Player player;
     private Game game;
-
-    private Boolean setPlayerData = false;
+    private Boolean startTimer = false;
 
     @FXML
-    private Pane color;
+    private Circle color;
 
     @FXML
     private Label nom;
@@ -94,8 +97,10 @@ public class Controller {
             switch (((GameStatData) o).getType()) {
                 case GameStatData.START_GAME:
                     this.showStartGame();
+                    startTimer();
                     break;
                 case GameStatData.END_GAME:
+                    startTimer = false;
                     break;
             }
         }
@@ -110,7 +115,7 @@ public class Controller {
 
             //Affiche la couleur du joueur sur l'interface graphique
             //Définition de Platform.runLater : Run the specified Runnable on the JavaFX Application Thread at some unspecified time in the future.
-            Platform.runLater(()->color.setStyle("-fx-background-color: " + this.convertColortoHex(player.getColor()) + ";"));
+            Platform.runLater(()->color.setFill(Paint.valueOf(this.convertColortoHex(player.getColor()))));
 
             //Afficher le nom du joueur dans l'interface graphique
             Platform.runLater(()->nom.setText(this.player.getUsername()));
@@ -137,7 +142,29 @@ public class Controller {
 
                         //Mise à jour du classement
                         if(player.getUniqueId().compareTo(this.player.getUniqueId()) == 0){
-                            Platform.runLater(()->classement.setText(String.valueOf(game.getPlayers().size() - nbMort + 1)));
+                            String texteClassement = "";
+                            int classementInt = game.getPlayers().size() - nbMort;
+
+                            switch(classementInt){
+                                case 0:{
+                                    texteClassement = "1er";
+                                    break;
+                                }
+                                case 1:{
+                                    texteClassement = "2ème";
+                                    break;
+                                }
+                                case 2:{
+                                    texteClassement = "3ème";
+                                    break;
+                                }
+                                case 3:{
+                                    texteClassement = "4ème";
+                                    break;
+                                }
+                            }
+                            String finalTexteClassement = texteClassement;
+                            Platform.runLater(()->classement.setText(finalTexteClassement));
                         }
                     }
                 }
@@ -145,8 +172,28 @@ public class Controller {
         }
     }
 
-    private void setClassement(String classementString){
-
+    private void startTimer(){
+        startTimer = true;
+        new Thread(){
+            public int secondes;
+            public int minutes;
+            NumberFormat formatter = new DecimalFormat("00");
+            public void run(){
+                while(startTimer){
+                    try {
+                        Thread.sleep(1000);
+                        secondes++;
+                        if(secondes == 60){
+                            minutes++;
+                            secondes = 0;
+                        }
+                        Platform.runLater(()->timer.setText(formatter.format(minutes) + ":" + formatter.format(secondes)));
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        }.start();
     }
 
     private String convertColortoHex(Color color) {
