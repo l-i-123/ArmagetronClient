@@ -44,6 +44,8 @@ public class Controller {
     @FXML
     private Label classement;
 
+    private int nbMort = 0;
+
     /*public Controller() {
         this.game = new Game();
         this.connect();
@@ -106,10 +108,11 @@ public class Controller {
         if(o instanceof PlayerData) {
             this.player = new Player(((PlayerData) o).getUniqueId(), ((PlayerData) o).getPosition(), ((PlayerData) o).getColor(), ((PlayerData) o).getUsername(), ((PlayerData) o).isAlive());
 
-                //Affiche la couleur du joueur sur l'interface graphique
+            //Affiche la couleur du joueur sur l'interface graphique
+            //Définition de Platform.runLater : Run the specified Runnable on the JavaFX Application Thread at some unspecified time in the future.
             Platform.runLater(()->color.setStyle("-fx-background-color: " + this.convertColortoHex(player.getColor()) + ";"));
 
-                //Afficher le nom du joueur dans l'interface graphique
+            //Afficher le nom du joueur dans l'interface graphique
             Platform.runLater(()->nom.setText(this.player.getUsername()));
         }
     }
@@ -127,13 +130,23 @@ public class Controller {
                         n.setStyle("-fx-background-color: " + this.convertColortoHex(player.getColor()) + ";");
                     }
                     else {
+                        nbMort++;
                         n.setStyle("-fx-background-image: url('/img/skull.png');" +
                                     "-fx-background-position: center center;" +
                                     "-fx-background-repeat: stretch;" );
+
+                        //Mise à jour du classement
+                        if(player.getUniqueId().compareTo(this.player.getUniqueId()) == 0){
+                            Platform.runLater(()->classement.setText(String.valueOf(game.getPlayers().size() - nbMort + 1)));
+                        }
                     }
                 }
             }
         }
+    }
+
+    private void setClassement(String classementString){
+
     }
 
     private String convertColortoHex(Color color) {
