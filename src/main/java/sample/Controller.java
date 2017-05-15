@@ -3,7 +3,6 @@ package sample;
 import client.Client;
 import client.Game;
 import client.Player;
-import com.sun.org.apache.xpath.internal.SourceTree;
 import data.ClientStatData;
 
 import data.GameData;
@@ -15,12 +14,10 @@ import javafx.scene.Node;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.GridPane;
-import javafx.scene.layout.Pane;
 import javafx.scene.control.Label;
 import javafx.scene.paint.Paint;
 import javafx.scene.shape.Circle;
 
-import java.awt.*;
 import java.awt.Color;
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
@@ -182,7 +179,7 @@ public class Controller {
                 while(startTimer){
                     try {
                         Thread.sleep(1000);
-                        secondes++;
+                            secondes++;
                         if(secondes == 60){
                             minutes++;
                             secondes = 0;
