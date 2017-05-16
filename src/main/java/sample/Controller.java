@@ -55,10 +55,11 @@ public class Controller {
 
         this.game = new Game();
         this.connect(serverIP,userName,userColor);
+
     }
 
     public void connect(String serverIP, String userName, Color userColor) {
-        client = new Client("localhost", 1500, "Trawn", this);
+        client = new Client(serverIP, 1500, userName, this, userColor);
     }
 
     public void onKeyPressed(KeyEvent keyEvent) {

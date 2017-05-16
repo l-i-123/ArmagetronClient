@@ -22,9 +22,12 @@ public class Client implements Runnable {
     private String username;
     private int port;
 
+    private Color userColor;
+
     private Controller controller;
 
-    public Client(String serverAddress, int port, String username, Controller controller){
+    public Client(String serverAddress, int port, String username, Controller controller, Color userColor){
+        this.userColor = userColor;
         this.serverAddress = serverAddress;
         this.port = port;
         this.username = username;
@@ -54,7 +57,8 @@ public class Client implements Runnable {
 
         this.thread.start();
 
-        this.sendData(new ConnectionData(this.username, new Color(Util.rand.nextInt(255), Util.rand.nextInt(255), Util.rand.nextInt(255))));
+        //this.sendData(new ConnectionData(this.username, new Color(Util.rand.nextInt(255), Util.rand.nextInt(255), Util.rand.nextInt(255))));
+        this.sendData(new ConnectionData(this.username, userColor));
     }
 
     public void sendData(Object o) {
