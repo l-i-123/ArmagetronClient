@@ -51,13 +51,14 @@ public class Controller {
         this.connect();
     }*/
 
-    public void init() {
+    public void init(String serverIP, String userName, Color userColor) {
+
         this.game = new Game();
-        this.connect();
+        this.connect(serverIP,userName,userColor);
     }
 
-    public void connect() {
-        client = new Client("localhost", 1500, "gamer", this);
+    public void connect(String serverIP, String userName, Color userColor) {
+        client = new Client("localhost", 1500, "Trawn", this);
     }
 
     public void onKeyPressed(KeyEvent keyEvent) {
