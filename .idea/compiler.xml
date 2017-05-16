@@ -20,7 +20,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="GEN_Armagetron_Client" target="1.5" />
+      <module name="GEN_Armagetron_Client" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>
