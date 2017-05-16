@@ -18,7 +18,7 @@
     <orderEntry type="module-library">
       <library name="Maven: armagetron.share:ArmagetronShare:1.0">
         <CLASSES>
-          <root url="jar://$MODULE_DIR$/share/ArmagetronShare.jar!/" />
+          <root url="jar://$MODULE_DIR$/share/ArmagetronShare-0.4.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
