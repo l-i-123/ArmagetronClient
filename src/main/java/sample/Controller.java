@@ -15,10 +15,11 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextArea;
 import javafx.scene.paint.Paint;
 import javafx.scene.shape.Circle;
 
-import java.awt.Color;
+import java.awt.*;
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
 import java.util.ArrayList;
@@ -42,6 +43,9 @@ public class Controller {
     private Circle colorPlayer3;
     @FXML
     private Circle colorPlayer4;
+
+    @FXML
+    private TextArea affichageTextuel;
 
     private ArrayList<Circle> colorPlayers ;
 
@@ -129,6 +133,7 @@ public class Controller {
                     startTimer();
                     break;
                 case GameStatData.END_GAME:
+                    this.showEndGame();
                     break;
             }
         }
@@ -145,17 +150,16 @@ public class Controller {
         if(o instanceof PlayerData) {
             this.player = new Player(((PlayerData) o).getUniqueId(), ((PlayerData) o).getPosition(), ((PlayerData) o).getColor(), ((PlayerData) o).getUsername(), ((PlayerData) o).isAlive());
 
-            //Affiche la couleur du joueur sur l'interface graphique
-            //Définition de Platform.runLater : Run the specified Runnable on the JavaFX Application Thread at some unspecified time in the future.
-            //Platform.runLater(()->colorPlayer1.setFill(Paint.valueOf(this.convertColortoHex(player.getColor()))));
-
-            //Afficher le nom du joueur dans l'interface graphique
-            //Platform.runLater(()->namePlayer1.setText(this.player.getUsername()));
         }
     }
 
     public void showStartGame() {
         share.Util.print("The game will begin get ready !!!");
+        affichageTextuel.setText("The game will begin get ready !!!");
+    }
+
+    public void showEndGame(){
+        affichageTextuel.setText("Game over !!!");
     }
 
     private void updatePosition() {
@@ -236,8 +240,6 @@ public class Controller {
         Iterator<Label> playerLabelIterator = labelPlayers.iterator();
 
         for(final Player player: game.getPlayers()){
-            System.out.println(player.getColor());
-            System.out.println(player.getUsername());
             if(playerColorIterator.hasNext() && playerLabelIterator.hasNext()){
                 Platform.runLater(()->playerColorIterator.next().setFill(Paint.valueOf(this.convertColortoHex(player.getColor()))));
                 Platform.runLater(()->playerLabelIterator.next().setText(player.getUsername()));

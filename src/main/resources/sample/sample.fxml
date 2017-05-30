@@ -6685,7 +6685,10 @@
                   <Circle fx:id="colorPlayer2" fill="#848a90" radius="15.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="2" GridPane.rowIndex="4" />
                   <Circle fx:id="colorPlayer3" fill="#848a90" radius="15.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="2" GridPane.rowIndex="5" />
                   <Circle fx:id="colorPlayer4" fill="#848a90" radius="15.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="2" GridPane.rowIndex="6" />
-                  <TextArea prefHeight="133.0" prefWidth="179.0" GridPane.columnIndex="1" GridPane.rowIndex="9" />
+                  <TextArea fx:id="affichageTextuel" prefHeight="69.0" prefWidth="200.0" style="-fx-font-alignment: center;" GridPane.columnSpan="3" GridPane.rowIndex="9">
+                     <font>
+                        <Font name="System Bold" size="20.0" />
+                     </font></TextArea>
                     </children>
                 </GridPane>
             </center></BorderPane>
