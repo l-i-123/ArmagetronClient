@@ -178,7 +178,7 @@ public class Controller {
                                     "-fx-background-position: center center;" +
                                     "-fx-background-repeat: stretch;" );
 
-                        //Mise à jour du classement
+                        //Mise a jour du classement
                         if(player.getUniqueId().compareTo(this.player.getUniqueId()) == 0){
                             startTimer = false;
                             String texteClassement = "";
