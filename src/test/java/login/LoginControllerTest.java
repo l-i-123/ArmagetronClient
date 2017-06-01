@@ -35,7 +35,7 @@ public class LoginControllerTest {
     public void checkName() throws Exception {
         Assert.assertEquals(loginController.checkName("coucou"), true );
         Assert.assertEquals(loginController.checkName("s"), false);
-        Assert.assertEquals(loginController.checkName("salut me34è"), true);
+        Assert.assertEquals(loginController.checkName("salut me34"), true);
         Assert.assertEquals(loginController.checkName("aaaaaaaaaaaaaadv"), false);
     }
 
