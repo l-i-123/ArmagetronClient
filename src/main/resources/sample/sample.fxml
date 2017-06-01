@@ -1,21 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.shape.*?>
-<?import java.lang.*?>
-<?import javafx.geometry.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
-<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
-<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onKeyPressed="#onKeyPressed" prefHeight="900.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onKeyPressed="#onKeyPressed" prefHeight="900.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8.0.112" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
     <columnConstraints>
         <ColumnConstraints hgrow="SOMETIMES" maxWidth="800.0" minWidth="800.0" prefWidth="800.0" />
         <ColumnConstraints hgrow="SOMETIMES" maxWidth="400.0" minWidth="400.0" prefWidth="400.0" />
@@ -6592,13 +6587,15 @@
                 <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="79" GridPane.rowIndex="79" />
             </children>
         </GridPane>
-        <BorderPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1">
+        <BorderPane prefHeight="200.0" prefWidth="200.0" style="-fx-border-: 20;" GridPane.columnIndex="1">
             <center>
                 <GridPane BorderPane.alignment="CENTER">
                     <columnConstraints>
-                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="129.0" minWidth="6.0" prefWidth="94.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="129.0" minWidth="10.0" prefWidth="42.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="129.0" minWidth="6.0" prefWidth="98.0" />
                         <ColumnConstraints hgrow="SOMETIMES" maxWidth="261.0" minWidth="10.0" prefWidth="178.0" />
-                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="157.0" minWidth="10.0" prefWidth="124.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="157.0" minWidth="10.0" prefWidth="112.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="157.0" minWidth="5.0" prefWidth="48.0" />
                     </columnConstraints>
                     <rowConstraints>
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
@@ -6616,7 +6613,7 @@
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                     <children>
-                        <BorderPane prefHeight="100.0" prefWidth="128.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                        <BorderPane prefHeight="100.0" prefWidth="128.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
                             <center>
                                 <Label fx:id="timer" text="-" BorderPane.alignment="CENTER_LEFT">
                                     <font>
@@ -6630,7 +6627,7 @@
                                     </font></Label>
                             </left>
                         </BorderPane>
-                        <BorderPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                        <BorderPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="2">
                             <left>
                                 <Label text="Classement : " BorderPane.alignment="CENTER">
                                     <font>
@@ -6646,7 +6643,7 @@
                                 </Label>
                             </center>
                         </BorderPane>
-                        <BorderPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                        <BorderPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="3">
                      <right>
                                 <BorderPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                                     <center>
@@ -6666,26 +6663,26 @@
                                 </BorderPane>
                      </right>
                         </BorderPane>
-                  <Circle fx:id="colorPlayer1" fill="#848a90" radius="15.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="2" GridPane.rowIndex="3" />
-                  <Label fx:id="namePlayer2" text="-" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                  <Circle fx:id="colorPlayer1" fill="#848a90" radius="15.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+                  <Label fx:id="namePlayer2" text="-" GridPane.columnIndex="2" GridPane.rowIndex="4">
                      <font>
                         <Font size="20.0" />
                      </font>
                   </Label>
-                  <Label fx:id="namePlayer3" text="-" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                  <Label fx:id="namePlayer3" text="-" GridPane.columnIndex="2" GridPane.rowIndex="5">
                      <font>
                         <Font size="20.0" />
                      </font>
                   </Label>
-                  <Label fx:id="namePlayer4" text="-" GridPane.columnIndex="1" GridPane.rowIndex="6">
+                  <Label fx:id="namePlayer4" text="-" GridPane.columnIndex="2" GridPane.rowIndex="6">
                      <font>
                         <Font size="20.0" />
                      </font>
                   </Label>
-                  <Circle fx:id="colorPlayer2" fill="#848a90" radius="15.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="2" GridPane.rowIndex="4" />
-                  <Circle fx:id="colorPlayer3" fill="#848a90" radius="15.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="2" GridPane.rowIndex="5" />
-                  <Circle fx:id="colorPlayer4" fill="#848a90" radius="15.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="2" GridPane.rowIndex="6" />
-                  <TextArea fx:id="affichageTextuel" prefHeight="69.0" prefWidth="200.0" style="-fx-font-alignment: center;" GridPane.columnSpan="3" GridPane.rowIndex="9">
+                  <Circle fx:id="colorPlayer2" fill="#848a90" radius="15.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="3" GridPane.rowIndex="4" />
+                  <Circle fx:id="colorPlayer3" fill="#848a90" radius="15.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="3" GridPane.rowIndex="5" />
+                  <Circle fx:id="colorPlayer4" fill="#848a90" radius="15.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="3" GridPane.rowIndex="6" />
+                  <TextArea fx:id="affichageTextuel" prefHeight="69.0" prefWidth="200.0" style="-fx-font-alignment: center;" GridPane.columnIndex="1" GridPane.columnSpan="3" GridPane.rowIndex="9">
                      <font>
                         <Font name="System Bold" size="20.0" />
                      </font></TextArea>
