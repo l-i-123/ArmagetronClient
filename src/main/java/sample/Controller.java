@@ -252,6 +252,10 @@ public class Controller {
 //        }
     }
 
+    public Client getClient (){
+        return this.client;
+    }
+
     private String convertColortoHex(Color color) {
         return String.format("#%06x", color.getRGB() & 0x00FFFFFF);
     }
