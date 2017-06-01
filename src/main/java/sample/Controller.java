@@ -15,12 +15,15 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextArea;
 import javafx.scene.paint.Paint;
 import javafx.scene.shape.Circle;
 
-import java.awt.Color;
+import java.awt.*;
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
+import java.util.ArrayList;
+import java.util.Iterator;
 
 public class Controller {
 
@@ -33,10 +36,29 @@ public class Controller {
     private Boolean startTimer = false;
 
     @FXML
-    private Circle color;
+    private Circle colorPlayer1;
+    @FXML
+    private Circle colorPlayer2;
+    @FXML
+    private Circle colorPlayer3;
+    @FXML
+    private Circle colorPlayer4;
 
     @FXML
-    private Label nom;
+    private TextArea affichageTextuel;
+
+    private ArrayList<Circle> colorPlayers ;
+
+    @FXML
+    private Label namePlayer1;
+    @FXML
+    private Label namePlayer2;
+    @FXML
+    private Label namePlayer3;
+    @FXML
+    private Label namePlayer4;
+
+    private ArrayList<Label> labelPlayers;
 
     @FXML
     private Label timer;
@@ -45,6 +67,8 @@ public class Controller {
     private Label classement;
 
     private int nbMort = 0;
+
+    private boolean setPlayersInformation = false;
 
     /*public Controller() {
         this.game = new Game();
@@ -55,7 +79,17 @@ public class Controller {
 
         this.game = new Game();
         this.connect(serverIP,userName,userColor);
+        this.colorPlayers = new ArrayList<>();
+        this.colorPlayers.add(colorPlayer1);
+        this.colorPlayers.add(colorPlayer2);
+        this.colorPlayers.add(colorPlayer3);
+        this.colorPlayers.add(colorPlayer4);
 
+        this.labelPlayers = new ArrayList<>();
+        labelPlayers.add(namePlayer1);
+        labelPlayers.add(namePlayer2);
+        labelPlayers.add(namePlayer3);
+        labelPlayers.add(namePlayer4);
     }
 
     public void connect(String serverIP, String userName, Color userColor) {
@@ -72,6 +106,8 @@ public class Controller {
             System.out.println("Clique droit");
         }
     }
+
+
 
     private Node getNodeByRowColumnIndex (final int row, final int column) {
         Node result = null;
@@ -99,30 +135,33 @@ public class Controller {
                     startTimer();
                     break;
                 case GameStatData.END_GAME:
-                    startTimer = false;
+                    this.showEndGame();
                     break;
             }
         }
         if(o instanceof GameData) {
             synchronized (game) {
                 this.game.setPlayers(((GameData) o).getPlayersData());
+                if(!setPlayersInformation){
+                    setColorPlayers();
+                    setPlayersInformation = true;
+                }
                 this.updatePosition();
             }
         }
         if(o instanceof PlayerData) {
             this.player = new Player(((PlayerData) o).getUniqueId(), ((PlayerData) o).getPosition(), ((PlayerData) o).getColor(), ((PlayerData) o).getUsername(), ((PlayerData) o).isAlive());
 
-            //Affiche la couleur du joueur sur l'interface graphique
-            //Définition de Platform.runLater : Run the specified Runnable on the JavaFX Application Thread at some unspecified time in the future.
-            Platform.runLater(()->color.setFill(Paint.valueOf(this.convertColortoHex(player.getColor()))));
-
-            //Afficher le nom du joueur dans l'interface graphique
-            Platform.runLater(()->nom.setText(this.player.getUsername()));
         }
     }
 
     public void showStartGame() {
         share.Util.print("The game will begin get ready !!!");
+        affichageTextuel.setText("The game will begin get ready !!!");
+    }
+
+    public void showEndGame(){
+        affichageTextuel.setText("Game over !!!");
     }
 
     private void updatePosition() {
@@ -141,6 +180,7 @@ public class Controller {
 
                         //Mise à jour du classement
                         if(player.getUniqueId().compareTo(this.player.getUniqueId()) == 0){
+                            startTimer = false;
                             String texteClassement = "";
                             int classementInt = game.getPlayers().size() - nbMort;
 
@@ -165,6 +205,7 @@ public class Controller {
                             String finalTexteClassement = texteClassement;
                             Platform.runLater(()->classement.setText(finalTexteClassement));
                         }
+                        System.out.println("contenu variable nbMort : " + nbMort);
                     }
                 }
             }
@@ -193,6 +234,24 @@ public class Controller {
                 }
             }
         }.start();
+    }
+
+    public void setColorPlayers(){
+        //Iterator<Player> playerColorIterator = game.getPlayers().iterator();
+        Iterator<Circle> playerColorIterator = colorPlayers.iterator();
+        Iterator<Label> playerLabelIterator = labelPlayers.iterator();
+
+        for(final Player player: game.getPlayers()){
+            if(playerColorIterator.hasNext() && playerLabelIterator.hasNext()){
+                Platform.runLater(()->playerColorIterator.next().setFill(Paint.valueOf(this.convertColortoHex(player.getColor()))));
+                Platform.runLater(()->playerLabelIterator.next().setText(player.getUsername()));
+            }
+        }
+
+//        for(final Circle color : colorPlayers) {
+//            Platform.runLater(()->color.setFill(Paint.valueOf(this.convertColortoHex(playerColorIterator.next().getColor()))));
+//            Platform.runLater(()->color.setFill(Paint.valueOf(this.convertColortoHex(playerColorIterator.next().getColor()))));
+//        }
     }
 
     private String convertColortoHex(Color color) {
