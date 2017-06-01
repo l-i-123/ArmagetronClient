@@ -35,7 +35,7 @@
                             <mainClass>sample.Main</mainClass>
                         </manifest>
                         <manifestEntries>
-                            <Class-Path>ArmagetronShare.jar</Class-Path>
+                            <Class-Path>ArmagetronShare-0.4.jar</Class-Path>
                         </manifestEntries>
                     </archive>
                 </configuration>
