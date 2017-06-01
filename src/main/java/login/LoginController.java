@@ -38,7 +38,7 @@ public class LoginController extends java.util.Observable{
 
         startButton.setOnAction(new EventHandler<ActionEvent>() {
             public void handle(ActionEvent event) {
-                System.out.println("tu as cliqué sur start!");
+                System.out.println("tu as clique sur start!");
 
                 userName = nickName.getText();
                 System.out.println(userName);
@@ -55,7 +55,7 @@ public class LoginController extends java.util.Observable{
                             setChanged();
                             notifyObservers("");
                         }else{
-                            errorMessage.setText("Vous avez choisi la couleur du terrain, mauvaise idée...");
+                            errorMessage.setText("Vous avez choisi la couleur du terrain, mauvaise idee...");
                         }
                     }else{
                         if (ipReachable){
@@ -65,7 +65,7 @@ public class LoginController extends java.util.Observable{
                         }
                     }
                 }else{
-                    errorMessage.setText("Pseudo non autorisé : entre 3 et 12 charactères svp");
+                    errorMessage.setText("Pseudo non autorise : entre 3 et 12 characteres svp");
                 }
                 System.out.println("fin du clic");
                 System.out.println(formOK);

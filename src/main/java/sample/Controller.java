@@ -190,15 +190,15 @@ public class Controller {
                                     break;
                                 }
                                 case 1:{
-                                    texteClassement = "2ème";
+                                    texteClassement = "2eme";
                                     break;
                                 }
                                 case 2:{
-                                    texteClassement = "3ème";
+                                    texteClassement = "3eme";
                                     break;
                                 }
                                 case 3:{
-                                    texteClassement = "4ème";
+                                    texteClassement = "4eme";
                                     break;
                                 }
                             }
