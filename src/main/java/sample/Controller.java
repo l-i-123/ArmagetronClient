@@ -107,6 +107,8 @@ public class Controller {
         }
     }
 
+
+
     private Node getNodeByRowColumnIndex (final int row, final int column) {
         Node result = null;
 
