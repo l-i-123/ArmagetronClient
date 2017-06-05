@@ -16,9 +16,9 @@
         <dependency>
             <groupId>armagetron.share</groupId>
             <artifactId>ArmagetronShare</artifactId>
-            <version>1.0</version>
+            <version>1.1</version>
             <scope>system</scope>
-            <systemPath>${project.basedir}/share/ArmagetronShare-0.4.jar</systemPath>
+            <systemPath>${project.basedir}/share/ArmagetronShare-1.1.jar</systemPath>
         </dependency>
     </dependencies>
 
@@ -35,7 +35,7 @@
                             <mainClass>sample.Main</mainClass>
                         </manifest>
                         <manifestEntries>
-                            <Class-Path>ArmagetronShare-0.4.jar</Class-Path>
+                            <Class-Path>ArmagetronShare-1.1.jar</Class-Path>
                         </manifestEntries>
                     </archive>
                 </configuration>
