@@ -6591,11 +6591,11 @@
             <center>
                 <GridPane BorderPane.alignment="CENTER">
                     <columnConstraints>
-                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="129.0" minWidth="10.0" prefWidth="42.0" />
-                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="129.0" minWidth="6.0" prefWidth="98.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="129.0" minWidth="10.0" prefWidth="22.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="129.0" minWidth="6.0" prefWidth="106.0" />
                         <ColumnConstraints hgrow="SOMETIMES" maxWidth="261.0" minWidth="10.0" prefWidth="178.0" />
-                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="157.0" minWidth="10.0" prefWidth="112.0" />
-                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="157.0" minWidth="5.0" prefWidth="48.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="157.0" minWidth="10.0" prefWidth="85.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="157.0" minWidth="5.0" prefWidth="26.0" />
                     </columnConstraints>
                     <rowConstraints>
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
@@ -6636,7 +6636,7 @@
                                 </Label>
                             </left>
                             <center>
-                                <Label fx:id="classement" text="-" BorderPane.alignment="CENTER_LEFT">
+                                <Label fx:id="classement" prefHeight="30.0" prefWidth="118.0" text="-" BorderPane.alignment="CENTER_LEFT">
                                     <font>
                                         <Font size="20.0" />
                                     </font>

@@ -4,7 +4,7 @@
 
     <groupId>armagetron.client</groupId>
     <artifactId>ArmagetronClient</artifactId>
-    <version>0.2</version>
+    <version>0.4</version>
 
     <dependencies>
         <dependency>
@@ -18,7 +18,7 @@
             <artifactId>ArmagetronShare</artifactId>
             <version>1.0</version>
             <scope>system</scope>
-            <systemPath>${project.basedir}/share/ArmagetronShare.jar</systemPath>
+            <systemPath>${project.basedir}/share/ArmagetronShare-0.4.jar</systemPath>
         </dependency>
     </dependencies>
 
@@ -35,7 +35,7 @@
                             <mainClass>sample.Main</mainClass>
                         </manifest>
                         <manifestEntries>
-                            <Class-Path>ArmagetronShare.jar</Class-Path>
+                            <Class-Path>ArmagetronShare-0.4.jar</Class-Path>
                         </manifestEntries>
                     </archive>
                 </configuration>

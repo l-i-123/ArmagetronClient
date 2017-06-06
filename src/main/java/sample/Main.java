@@ -21,7 +21,7 @@ public class Main extends Application implements Observer{
     @Override
     public void start(Stage primaryStage) throws Exception{
 
-        // fenêtre de login
+        // fenetre de login
 
         FXMLLoader loaderLogin = new FXMLLoader(getClass().getResource("/login/login.fxml"));
         Parent loginRoot = loaderLogin.load();
@@ -41,7 +41,7 @@ public class Main extends Application implements Observer{
     public void update(Observable o, Object arg) {
         if(o instanceof LoginController){
             if(((LoginController)o).checkForm()) {
-                //fenêtre de jeu
+                //fenetre de jeu
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("sample.fxml"));
                 Parent root = null;
                 try {
@@ -55,7 +55,7 @@ public class Main extends Application implements Observer{
                 root.getScene().getRoot().requestFocus();
                 Controller controller = loader.getController();
                 controller.init(((LoginController)o).serverIP, ((LoginController)o).userName, convertColor(((LoginController)o).userColor));
-                //fermeture de la fenêtre de login
+                //fermeture de la fenetre de login
                 loginStage.close();
             }
         }

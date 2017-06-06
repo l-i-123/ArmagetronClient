@@ -69,12 +69,18 @@ public class Controller {
     private int nbMort = 0;
 
     private boolean setPlayersInformation = false;
+    private Boolean endGame = false;
 
-    /*public Controller() {
-        this.game = new Game();
-        this.connect();
-    }*/
 
+    /**
+     * @fn init
+     *
+     * @brief Methode d'initialisation de la communication avec le serveur ainsi que de divers variable
+     *
+     * @param serverIP
+     * @param userName
+     * @param userColor
+     */
     public void init(String serverIP, String userName, Color userColor) {
 
         this.game = new Game();
@@ -92,10 +98,26 @@ public class Controller {
         labelPlayers.add(namePlayer4);
     }
 
+    /**
+     * @fn connect
+     *
+     * @brief Methode de connection du client au serveur
+     *
+     * @param serverIP
+     * @param userName
+     * @param userColor
+     */
     public void connect(String serverIP, String userName, Color userColor) {
         client = new Client(serverIP, 1500, userName, this, userColor);
     }
 
+    /**
+     * @fn onKeyPressed
+     *
+     * @brief Methode transmettant au client l'etat des touches gauche et droite
+     *
+     * @param keyEvent
+     */
     public void onKeyPressed(KeyEvent keyEvent) {
         if(keyEvent.getCode() == KeyCode.LEFT) {
             client.sendData(new ClientStatData(ClientStatData.TURN_LEFT, player.getUniqueId()));
@@ -106,9 +128,16 @@ public class Controller {
             System.out.println("Clique droit");
         }
     }
-
-
-
+    
+    /**
+     * @fn getNodeByRowColumnIndex
+     *
+     * @brief Methode retournant un noeud par rapport à une position donnee
+     *
+     * @param row
+     * @param column
+     * @return Node
+     */
     private Node getNodeByRowColumnIndex (final int row, final int column) {
         Node result = null;
 
@@ -127,6 +156,13 @@ public class Controller {
         return result;
     }
 
+    /**
+     * @fn processData
+     *
+     * @brief Methode appele par l'objet Client lui permettant de transmettre au contrôleur les objet qui le concerne
+     *
+     * @param o
+     */
     public void processData(Object o) {
         if(o instanceof GameStatData) {
             switch (((GameStatData) o).getType()) {
@@ -136,6 +172,7 @@ public class Controller {
                     break;
                 case GameStatData.END_GAME:
                     this.showEndGame();
+                    endGame = true;
                     break;
             }
         }
@@ -146,6 +183,9 @@ public class Controller {
                     setColorPlayers();
                     setPlayersInformation = true;
                 }
+                if(endGame){
+                    setClassement(((GameData) o).getPlayersData());
+                }
                 this.updatePosition();
             }
         }
@@ -155,15 +195,33 @@ public class Controller {
         }
     }
 
+    /**
+     * @fn showStartGame
+     *
+     * @brief Methode appele en debut departie pour afficher textuellement le demarrage de la partie
+     *
+     */
     public void showStartGame() {
         share.Util.print("The game will begin get ready !!!");
         affichageTextuel.setText("The game will begin get ready !!!");
     }
 
+    /**
+     * @fn showEndGame
+     *
+     * @brief Methode appele à la fin de la partie pour indiquer textuellement que la partie est termine
+     *
+     */
     public void showEndGame(){
         affichageTextuel.setText("Game over !!!");
     }
 
+    /**
+     * @fn updatePosition
+     *
+     *@brief Methode mettant à jour les potision des joueurs
+     *
+     */
     private void updatePosition() {
         synchronized (this.gameGrid) {
             for (Player player : game.getPlayers()) {
@@ -173,45 +231,16 @@ public class Controller {
                         n.setStyle("-fx-background-color: " + this.convertColortoHex(player.getColor()) + ";");
                     }
                     else {
-                        nbMort++;
                         n.setStyle("-fx-background-image: url('/img/skull.png');" +
-                                    "-fx-background-position: center center;" +
-                                    "-fx-background-repeat: stretch;" );
-
-                        //Mise à jour du classement
-                        if(player.getUniqueId().compareTo(this.player.getUniqueId()) == 0){
-                            startTimer = false;
-                            String texteClassement = "";
-                            int classementInt = game.getPlayers().size() - nbMort;
-
-                            switch(classementInt){
-                                case 0:{
-                                    texteClassement = "1er";
-                                    break;
-                                }
-                                case 1:{
-                                    texteClassement = "2ème";
-                                    break;
-                                }
-                                case 2:{
-                                    texteClassement = "3ème";
-                                    break;
-                                }
-                                case 3:{
-                                    texteClassement = "4ème";
-                                    break;
-                                }
-                            }
-                            String finalTexteClassement = texteClassement;
-                            Platform.runLater(()->classement.setText(finalTexteClassement));
-                        }
-                        System.out.println("contenu variable nbMort : " + nbMort);
+                                "-fx-background-position: center center;" +
+                                "-fx-background-repeat: stretch;" );
                     }
                 }
             }
         }
     }
 
+    //Methode à modifier, le timer doit être transmis par le serveur et non genere dans le controleur
     private void startTimer(){
         startTimer = true;
         new Thread(){
@@ -236,6 +265,12 @@ public class Controller {
         }.start();
     }
 
+    /**
+     * @fn setColorPlayers
+     *
+     * @brief Methode permettant de setter les couleurs de chaque joueur dans l'interface graphique
+     *
+     */
     public void setColorPlayers(){
         //Iterator<Player> playerColorIterator = game.getPlayers().iterator();
         Iterator<Circle> playerColorIterator = colorPlayers.iterator();
@@ -247,13 +282,57 @@ public class Controller {
                 Platform.runLater(()->playerLabelIterator.next().setText(player.getUsername()));
             }
         }
-
-//        for(final Circle color : colorPlayers) {
-//            Platform.runLater(()->color.setFill(Paint.valueOf(this.convertColortoHex(playerColorIterator.next().getColor()))));
-//            Platform.runLater(()->color.setFill(Paint.valueOf(this.convertColortoHex(playerColorIterator.next().getColor()))));
-//        }
     }
 
+    /**
+     * @fn setClassement
+     *
+     * @brief Methode d'affichage du classement
+     *
+     * @param players
+     */
+    private void setClassement(ArrayList<PlayerData> players){
+        int position = 0;
+        String texteClassement = "";
+        for(int i = 0; i < players.size();++i) {
+            System.out.println(players.get(i).getUniqueId());
+            System.out.println(player.getUniqueId());
+            if (players.get(i).getUniqueId().equals(player.getUniqueId())) {
+                position = i;
+            }
+        }
+        switch (position){
+            case 0:
+                texteClassement = "1er";
+                break;
+            case 1:
+                texteClassement = "2ème";
+                break;
+            case 2:
+                texteClassement = "3ème";
+                break;
+            case 3:
+                texteClassement = "4ème";
+                break;
+        }
+
+        String finalTexteClassement = texteClassement;
+        Platform.runLater(()->classement.setText(finalTexteClassement));
+
+    }
+
+    public Client getClient (){
+        return this.client;
+    }
+
+    /**
+     * @fn convertColorHex
+     *
+     * @brief Methode permettant de convertir les couleurs de type Color en type String
+     *
+     * @param color
+     * @return String
+     */
     private String convertColortoHex(Color color) {
         return String.format("#%06x", color.getRGB() & 0x00FFFFFF);
     }
