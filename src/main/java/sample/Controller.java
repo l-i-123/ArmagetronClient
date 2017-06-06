@@ -128,8 +128,7 @@ public class Controller {
             System.out.println("Clique droit");
         }
     }
-
-
+    
     /**
      * @fn getNodeByRowColumnIndex
      *
