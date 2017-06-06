@@ -191,7 +191,6 @@ public class Controller {
         }
         if(o instanceof PlayerData) {
             this.player = new Player(((PlayerData) o).getUniqueId(), ((PlayerData) o).getPosition(), ((PlayerData) o).getColor(), ((PlayerData) o).getUsername(), ((PlayerData) o).isAlive());
-
         }
     }
 
