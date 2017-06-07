@@ -6614,18 +6614,6 @@
                     </rowConstraints>
                     <children>
                         <BorderPane prefHeight="100.0" prefWidth="128.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
-                            <center>
-                                <Label fx:id="timer" text="-" BorderPane.alignment="CENTER_LEFT">
-                                    <font>
-                                        <Font size="21.0" />
-                                    </font></Label>
-                            </center>
-                            <left>
-                                <Label text="Timer : " BorderPane.alignment="CENTER_RIGHT">
-                                    <font>
-                                        <Font size="21.0" />
-                                    </font></Label>
-                            </left>
                         </BorderPane>
                         <BorderPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="2">
                             <left>

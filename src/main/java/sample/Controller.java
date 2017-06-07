@@ -20,8 +20,6 @@ import javafx.scene.paint.Paint;
 import javafx.scene.shape.Circle;
 
 import java.awt.*;
-import java.text.DecimalFormat;
-import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.Iterator;
 
@@ -61,12 +59,7 @@ public class Controller {
     private ArrayList<Label> labelPlayers;
 
     @FXML
-    private Label timer;
-
-    @FXML
     private Label classement;
-
-    private int nbMort = 0;
 
     private boolean setPlayersInformation = false;
     private Boolean endGame = false;
@@ -96,6 +89,7 @@ public class Controller {
         labelPlayers.add(namePlayer2);
         labelPlayers.add(namePlayer3);
         labelPlayers.add(namePlayer4);
+
     }
 
     /**
@@ -168,7 +162,7 @@ public class Controller {
             switch (((GameStatData) o).getType()) {
                 case GameStatData.START_GAME:
                     this.showStartGame();
-                    startTimer();
+                    rebornAccount(((GameStatData) o).getTimeToWait());
                     break;
                 case GameStatData.END_GAME:
                     this.showEndGame();
@@ -185,6 +179,7 @@ public class Controller {
                 }
                 if(endGame){
                     setClassement(((GameData) o).getPlayersData());
+                    startTimer = false;
                 }
                 this.updatePosition();
             }
@@ -239,30 +234,32 @@ public class Controller {
         }
     }
 
-    //Methode à modifier, le timer doit être transmis par le serveur et non genere dans le controleur
-    private void startTimer(){
-        startTimer = true;
+    /**
+     *
+     * @fn rebornAccount
+     *
+     * @brief compte a rebours avant le debut de la partie
+     *
+     * @param nbSeconde
+     */
+    public void rebornAccount(int nbSeconde){
         new Thread(){
-            public int secondes;
-            public int minutes;
-            NumberFormat formatter = new DecimalFormat("00");
             public void run(){
-                while(startTimer){
-                    try {
+                int compteur = 0;
+                while(compteur < nbSeconde){
+                    try{
+                        affichageTextuel.setText("The game is starting in : " + (nbSeconde - compteur));
+                        compteur++;
                         Thread.sleep(1000);
-                            secondes++;
-                        if(secondes == 60){
-                            minutes++;
-                            secondes = 0;
-                        }
-                        Platform.runLater(()->timer.setText(formatter.format(minutes) + ":" + formatter.format(secondes)));
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
+                    }catch (Exception e){
+                        System.out.println(e);
                     }
                 }
+                affichageTextuel.setText("Good Luck !!!!");
             }
         }.start();
     }
+
 
     /**
      * @fn setColorPlayers
@@ -288,7 +285,7 @@ public class Controller {
      *
      * @brief Methode d'affichage du classement
      *
-     * @param players
+     * @param players liste des players
      */
     private void setClassement(ArrayList<PlayerData> players){
         int position = 0;
@@ -314,12 +311,17 @@ public class Controller {
                 texteClassement = "4ème";
                 break;
         }
-
         String finalTexteClassement = texteClassement;
         Platform.runLater(()->classement.setText(finalTexteClassement));
-
     }
 
+    /**
+     * @fn getClient
+     *
+     * @briel Methode qui retourne le client
+     *
+     * @return
+     */
     public Client getClient (){
         return this.client;
     }
