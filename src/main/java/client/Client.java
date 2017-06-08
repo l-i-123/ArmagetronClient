@@ -1,3 +1,12 @@
+/**
+ * @project     : Argmagetron
+ * @file        : Client.java
+ * @author(s)   : Thomas Léchaire, Kevin Pradervand, Elie N'Djoli Bohulu, Michaël Brouchoud
+ * @date        : 08.06.2017
+ *
+ * @brief        : Client Class that generate the play ground window
+ */
+
 package client;
 
 import data.ConnectionData;
@@ -37,6 +46,13 @@ public class Client implements Runnable {
         this.connect();
     }
 
+    /**
+     * @fn connect
+     *
+     * @brief methode that connect the client to the server
+     *
+     * @param void
+     */
     public void connect(){
         try{
             socket = new Socket(serverAddress, port);
@@ -61,6 +77,14 @@ public class Client implements Runnable {
         this.sendData(new ConnectionData(this.username, userColor));
     }
 
+    /**
+     * @fn sendData
+     *
+     * @brief methode to send Data to the server
+     *
+     * @param o
+     * @param void
+     */
     public void sendData(Object o) {
         if(!socket.isConnected()) {
             Util.print("Client disconnected");
@@ -77,6 +101,13 @@ public class Client implements Runnable {
         }
     }
 
+    /**
+     * @fn close
+     *
+     * @brief methode that close socket and connection with the server
+     *
+     * @param void
+     */
     public void close(){
         this.keepGoing = false;
         try {

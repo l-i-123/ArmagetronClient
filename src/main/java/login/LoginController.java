@@ -1,3 +1,13 @@
+/**
+ * @project     : Argmagetron
+ * @file        : LoginController.java
+ * @author(s)   :  Thomas Léchaire, Kevin Pradervand, Elie N'Djoli Bohulu, Michaël Brouchoud
+ * @date        : 08.06.2017
+ *
+ * @brief        : Controller of the login windows
+ */
+
+
 package login;
 
 import javafx.event.ActionEvent;
@@ -34,6 +44,13 @@ public class LoginController extends java.util.Observable{
     public boolean ipReachable = false;
     private boolean formOK = false;
 
+    /**
+     * @fn init
+     *
+     * @brief Methode that initate the LoginController
+     *
+     * @return void
+     */
     public void init() {
 
         startButton.setOnAction(new EventHandler<ActionEvent>() {
@@ -75,7 +92,14 @@ public class LoginController extends java.util.Observable{
         System.out.println("fin fin du clic");
     }
 
-
+    /**
+     * @fn checkIP
+     *
+     * @brief Methode to check if the IP address is correct or reachable
+     *
+     * @param ip
+     * @return boolean
+     */
     public boolean checkIP (String ip){
         if (ip.matches("^[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}") | ip.matches("localhost")) {
             try {
@@ -90,6 +114,14 @@ public class LoginController extends java.util.Observable{
         return false;
     }
 
+    /**
+     * @fn checkName
+     *
+     * @brief Methode to check if the name of the palyer is correct
+     *
+     * @param name
+     * @return boolean
+     */
     public boolean checkName (String name){
         if (name.matches("^.{3,12}$")){
             return true;
@@ -98,6 +130,14 @@ public class LoginController extends java.util.Observable{
 
     }
 
+    /**
+     * @fn checkColor
+     *
+     * @brief Methode to check if the player'scolor is different from white
+     *
+     * @param color
+     * @return boolean
+     */
     public boolean checkColor (Color color){
         if (color == Color.WHITE){
             return false;
@@ -106,7 +146,13 @@ public class LoginController extends java.util.Observable{
 
 
     }
-
+    /**
+     * @fn checkForm
+     *
+     * @brief Methode to check if the state's form
+     *
+     * @return boolean
+     */
     public boolean checkForm(){
         return formOK;
     }

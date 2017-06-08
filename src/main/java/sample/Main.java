@@ -1,3 +1,11 @@
+/**
+ * @project     : Argmagetron
+ * @file        : Main.java
+ * @author(s)   : Thomas Léchaire, Kevin Pradervand, Elie N'Djoli Bohulu, Michaël Brouchoud
+ * @date        : 08.06.2017
+ *
+ * @brief        : MAIN class that run the client
+ */
 package sample;
 
 import javafx.application.Application;

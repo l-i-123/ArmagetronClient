@@ -1,3 +1,11 @@
+/**
+ * @project     : Argmagetron
+ * @file        : Controller.java
+ * @author(s)   : Thomas Léchaire, Kevin Pradervand, Elie N'Djoli Bohulu, Michaël Brouchoud
+ * @date        : 08.06.2017
+ *
+ * @brief        : Controller of the playing grid that display the game
+ */
 package sample;
 
 import client.Client;
@@ -288,16 +296,20 @@ public class Controller {
         }
         switch (position){
             case 0:
-                texteClassement = "1er";
+                texteClassement = "1st";
+                affichageTextuel.setText("HOUAA! What an amazing pilot!");
                 break;
             case 1:
-                texteClassement = "2ème";
+                texteClassement = "2nd";
+                affichageTextuel.setText("Almost there!");
                 break;
             case 2:
-                texteClassement = "3ème";
+                texteClassement = "3rd";
+                affichageTextuel.setText("Good Try.");
                 break;
             case 3:
-                texteClassement = "4ème";
+                texteClassement = "4th";
+                affichageTextuel.setText("Shit happens...");
                 break;
         }
         String finalTexteClassement = texteClassement;
