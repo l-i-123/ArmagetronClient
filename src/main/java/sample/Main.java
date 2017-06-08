@@ -11,13 +11,20 @@ import javafx.scene.paint.Color;
 import java.io.IOException;
 import java.util.Observable;
 import java.util.Observer;
-import java.util.Scanner;
 
 public class Main extends Application implements Observer{
 
     final Stage primaryStage = new Stage();
     Stage loginStage = new Stage();
 
+    /**
+     *@fn start
+     *
+     *@brief Methode who start the display
+     *
+     * @param primaryStage
+     * @throws Exception
+     */
     @Override
     public void start(Stage primaryStage) throws Exception{
 
@@ -38,10 +45,18 @@ public class Main extends Application implements Observer{
         launch(args);
     }
 
+    /**
+     * @fn update
+     *
+     * @brief Start the game after login reception
+     *
+     * @param o
+     * @param arg
+     */
     public void update(Observable o, Object arg) {
         if(o instanceof LoginController){
             if(((LoginController)o).checkForm()) {
-                //fenetre de jeu
+                //Game windows
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("sample.fxml"));
                 Parent root = null;
                 try {
@@ -49,18 +64,26 @@ public class Main extends Application implements Observer{
                 } catch (IOException e) {
                     System.out.println(e);
                 }
-                primaryStage.setTitle("Hello World");
+                primaryStage.setTitle("Armagetron");
                 primaryStage.setScene(new Scene(root));
                 primaryStage.show();
                 root.getScene().getRoot().requestFocus();
                 Controller controller = loader.getController();
                 controller.init(((LoginController)o).serverIP, ((LoginController)o).userName, convertColor(((LoginController)o).userColor));
-                //fermeture de la fenetre de login
+                //Closing the windows login
                 loginStage.close();
             }
         }
     }
 
+    /**
+     * @fn convertColor
+     *
+     * @brief Convert paint.Color object to java.awt.Color
+     *
+     * @param color
+     * @return java.awt.Color
+     */
     private java.awt.Color convertColor(Color color){
         java.awt.Color awtColor = new java.awt.Color((float) color.getRed(),(float) color.getGreen(), (float) color.getBlue(), (float) color.getOpacity());
         return awtColor;

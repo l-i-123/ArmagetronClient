@@ -29,7 +29,6 @@ public class Controller {
     private Player player;
     private Game game;
     private ArrayList<Circle> colorPlayers ;
-    private Boolean startTimer = false;
     private ArrayList<Label> labelPlayers;
     private boolean setPlayersInformation = false;
     private Boolean endGame = false;
@@ -87,7 +86,7 @@ public class Controller {
     /**
      * @fn connect
      *
-     * @brief Methode de connection du client au serveur
+     * @brief Connection methode between client and server
      *
      * @param serverIP
      * @param userName
@@ -100,7 +99,7 @@ public class Controller {
     /**
      * @fn onKeyPressed
      *
-     * @brief Methode transmettant au client l'etat des touches gauche et droite
+     * @brief methode to send to key pressed to the client object
      *
      * @param keyEvent
      */
@@ -118,7 +117,7 @@ public class Controller {
     /**
      * @fn getNodeByRowColumnIndex
      *
-     * @brief Methode retournant un noeud par rapport à une position donnee
+     * @brief Methode who return a selected node with the axe x and y
      *
      * @param row
      * @param column
@@ -145,7 +144,7 @@ public class Controller {
     /**
      * @fn processData
      *
-     * @brief Methode appele par l'objet Client lui permettant de transmettre au contrôleur les objet qui le concerne
+     * @brief Methode to receive the object from the client
      *
      * @param o
      */
@@ -154,7 +153,7 @@ public class Controller {
             switch (((GameStatData) o).getType()) {
                 case GameStatData.START_GAME:
                     this.showStartGame();
-                    rebornAccount(((GameStatData) o).getTimeToWait());
+                    countdown(((GameStatData) o).getTimeToWait());
                     break;
                 case GameStatData.END_GAME:
                     this.showEndGame();
@@ -171,7 +170,6 @@ public class Controller {
                 }
                 if(endGame){
                     setClassement(((GameData) o).getPlayersData());
-                    startTimer = false;
                 }
                 this.updatePosition();
             }
@@ -184,18 +182,17 @@ public class Controller {
     /**
      * @fn showStartGame
      *
-     * @brief Methode appele en debut departie pour afficher textuellement le demarrage de la partie
+     * @brief Textual display about the start of the game
      *
      */
     public void showStartGame() {
-        share.Util.print("The game will begin get ready !!!");
         affichageTextuel.setText("The game will begin get ready !!!");
     }
 
     /**
      * @fn showEndGame
      *
-     * @brief Methode appele à la fin de la partie pour indiquer textuellement que la partie est termine
+     * @brief Textual display about the end of a game
      *
      */
     public void showEndGame(){
@@ -205,7 +202,7 @@ public class Controller {
     /**
      * @fn updatePosition
      *
-     *@brief Methode mettant à jour les potision des joueurs
+     *@brief Methode who update the position's players
      *
      */
     private void updatePosition() {
@@ -230,11 +227,11 @@ public class Controller {
      *
      * @fn rebornAccount
      *
-     * @brief compte a rebours avant le debut de la partie
+     * @brief countdown for the begin of the game
      *
      * @param nbMilliseconde
      */
-    public void rebornAccount(short nbMilliseconde){
+    public void countdown(short nbMilliseconde){
         new Thread(){
             public void run(){
                 int nbSeconde = nbMilliseconde / 1000;
@@ -257,11 +254,10 @@ public class Controller {
     /**
      * @fn setColorPlayers
      *
-     * @brief Methode permettant de setter les couleurs de chaque joueur dans l'interface graphique
+     * @brief Players color setting
      *
      */
     public void setColorPlayers(){
-        //Iterator<Player> playerColorIterator = game.getPlayers().iterator();
         Iterator<Circle> playerColorIterator = colorPlayers.iterator();
         Iterator<Label> playerLabelIterator = labelPlayers.iterator();
 
@@ -276,7 +272,7 @@ public class Controller {
     /**
      * @fn setClassement
      *
-     * @brief Methode d'affichage du classement
+     * @brief Classement display
      *
      * @param players liste des players
      */
@@ -309,20 +305,9 @@ public class Controller {
     }
 
     /**
-     * @fn getClient
-     *
-     * @briel Methode qui retourne le client
-     *
-     * @return
-     */
-    public Client getClient (){
-        return this.client;
-    }
-
-    /**
      * @fn convertColorHex
      *
-     * @brief Methode permettant de convertir les couleurs de type Color en type String
+     * @brief Methode to convert Color object to String
      *
      * @param color
      * @return String
