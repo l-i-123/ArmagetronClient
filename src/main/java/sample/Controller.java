@@ -52,7 +52,7 @@ public class Controller {
     @FXML
     private Circle colorPlayer4;
     @FXML
-    private TextArea affichageTextuel;
+    private TextArea guiDisplay;
     @FXML
     private Label namePlayer1;
     @FXML
@@ -194,7 +194,7 @@ public class Controller {
      *
      */
     public void showStartGame() {
-        affichageTextuel.setText("The game will begin get ready !!!");
+        guiDisplay.setText("The game will begin get ready !!!");
     }
 
     /**
@@ -204,7 +204,7 @@ public class Controller {
      *
      */
     public void showEndGame(){
-        affichageTextuel.setText("Game over !!!");
+        guiDisplay.setText("Game over !!!");
     }
 
     /**
@@ -246,14 +246,14 @@ public class Controller {
                 int compteur = 0;
                 while(compteur < nbSeconde){
                     try{
-                        affichageTextuel.setText("The game is starting in : " + (nbSeconde - compteur));
+                        guiDisplay.setText("The game is starting in : " + (nbSeconde - compteur));
                         compteur++;
                         Thread.sleep(1000);
                     }catch (Exception e){
                         System.out.println(e);
                     }
                 }
-                affichageTextuel.setText("Good Luck !!!!");
+                guiDisplay.setText("Good Luck !!!!");
             }
         }.start();
     }
@@ -297,19 +297,19 @@ public class Controller {
         switch (position){
             case 0:
                 texteClassement = "1st";
-                affichageTextuel.setText("HOUAA! What an amazing pilot!");
+                guiDisplay.setText("HOUAA! What an amazing pilot!");
                 break;
             case 1:
                 texteClassement = "2nd";
-                affichageTextuel.setText("Almost there!");
+                guiDisplay.setText("Almost there!");
                 break;
             case 2:
                 texteClassement = "3rd";
-                affichageTextuel.setText("Good Try.");
+                guiDisplay.setText("Good Try.");
                 break;
             case 3:
                 texteClassement = "4th";
-                affichageTextuel.setText("Shit happens...");
+                guiDisplay.setText("Shit happens...");
                 break;
         }
         String finalTexteClassement = texteClassement;
