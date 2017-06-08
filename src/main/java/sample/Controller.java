@@ -25,14 +25,17 @@ import java.util.Iterator;
 
 public class Controller {
 
-    @FXML
-    private GridPane gameGrid;
-
     private Client client;
     private Player player;
     private Game game;
+    private ArrayList<Circle> colorPlayers ;
     private Boolean startTimer = false;
+    private ArrayList<Label> labelPlayers;
+    private boolean setPlayersInformation = false;
+    private Boolean endGame = false;
 
+    @FXML
+    private GridPane gameGrid;
     @FXML
     private Circle colorPlayer1;
     @FXML
@@ -41,12 +44,8 @@ public class Controller {
     private Circle colorPlayer3;
     @FXML
     private Circle colorPlayer4;
-
     @FXML
     private TextArea affichageTextuel;
-
-    private ArrayList<Circle> colorPlayers ;
-
     @FXML
     private Label namePlayer1;
     @FXML
@@ -55,20 +54,13 @@ public class Controller {
     private Label namePlayer3;
     @FXML
     private Label namePlayer4;
-
-    private ArrayList<Label> labelPlayers;
-
     @FXML
     private Label classement;
-
-    private boolean setPlayersInformation = false;
-    private Boolean endGame = false;
-
 
     /**
      * @fn init
      *
-     * @brief Methode d'initialisation de la communication avec le serveur ainsi que de divers variable
+     * @brief Initialisation methode
      *
      * @param serverIP
      * @param userName
@@ -240,11 +232,12 @@ public class Controller {
      *
      * @brief compte a rebours avant le debut de la partie
      *
-     * @param nbSeconde
+     * @param nbMilliseconde
      */
-    public void rebornAccount(int nbSeconde){
+    public void rebornAccount(short nbMilliseconde){
         new Thread(){
             public void run(){
+                int nbSeconde = nbMilliseconde / 1000;
                 int compteur = 0;
                 while(compteur < nbSeconde){
                     try{
