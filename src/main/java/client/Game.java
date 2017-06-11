@@ -1,7 +1,7 @@
 /**
  * @project     : Argmagetron
  * @file        : Game.java
- * @author(s)   : Thomas Léchaire, Kevin Pradervand, Elie N'Djoli Bohulu, Michaël Brouchoud
+ * @author(s)   : Thomas Lechaire, Kevin Pradervand, Elie N'Djoli Bohulu, Michael Brouchoud
  * @date        : 08.06.2017
  *
  * @brief        : Game class that manage local data for players
@@ -21,11 +21,11 @@ public class Game {
     }
 
     /**
-     * @fn getPlayers
+     * @fn public ArrayList<Player> getPlayers()
      *
-     * @brief methode that return a list of all players
+     * @brief Return a list of all players
      *
-     * @param ArrayList<Player>
+     * @return ArrayList<Player> The list of players
      */
     public ArrayList<Player> getPlayers() {
         return players;

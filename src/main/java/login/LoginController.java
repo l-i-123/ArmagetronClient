@@ -1,7 +1,7 @@
 /**
  * @project     : Argmagetron
  * @file        : LoginController.java
- * @author(s)   :  Thomas Léchaire, Kevin Pradervand, Elie N'Djoli Bohulu, Michaël Brouchoud
+ * @author(s)   : Thomas Lechaire, Kevin Pradervand, Elie N'Djoli Bohulu, Michael Brouchoud
  * @date        : 08.06.2017
  *
  * @brief        : Controller of the login windows
@@ -22,9 +22,6 @@ import javafx.scene.paint.Color;
 import java.net.InetAddress;
 
 
-/**
- * Created by Kevin on 11.05.2017.
- */
 public class LoginController extends java.util.Observable{
 
     @FXML
@@ -41,13 +38,13 @@ public class LoginController extends java.util.Observable{
     public String userName;
     public String serverIP;
     public Color userColor;
-    public boolean ipReachable = false;
+    private boolean ipReachable = false;
     private boolean formOK = false;
 
     /**
-     * @fn init
+     * @fn public void init()
      *
-     * @brief Methode that initate the LoginController
+     * @brief Method that initate the LoginController
      *
      * @return void
      */
@@ -93,14 +90,14 @@ public class LoginController extends java.util.Observable{
     }
 
     /**
-     * @fn checkIP
+     * @fn boolean checkIP (String ip)
      *
-     * @brief Methode to check if the IP address is correct or reachable
+     * @brief Method to check if the IP address is correct or reachable
      *
      * @param ip
      * @return boolean
      */
-    public boolean checkIP (String ip){
+    boolean checkIP (String ip) {
         if (ip.matches("^[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}") | ip.matches("localhost")) {
             try {
                 if (InetAddress.getByName(ip).isReachable(60)) {
@@ -115,39 +112,31 @@ public class LoginController extends java.util.Observable{
     }
 
     /**
-     * @fn checkName
+     * @fn boolean checkName (String name)
      *
-     * @brief Methode to check if the name of the palyer is correct
+     * @brief Method to check if the name of the palyer is correct
      *
      * @param name
      * @return boolean
      */
-    public boolean checkName (String name){
-        if (name.matches("^.{3,12}$")){
-            return true;
-        }
-        return false;
-
+    boolean checkName (String name) {
+        return (name.matches("^.{3,12}$"));
     }
 
     /**
-     * @fn checkColor
+     * @fn boolean checkColor (Color color)
      *
      * @brief Methode to check if the player'scolor is different from white
      *
      * @param color
      * @return boolean
      */
-    public boolean checkColor (Color color){
-        if (color == Color.WHITE){
-            return false;
-        }
-        return true;
-
-
+    boolean checkColor (Color color) {
+        return (color == Color.WHITE);
     }
+
     /**
-     * @fn checkForm
+     * @fn public boolean checkForm()
      *
      * @brief Methode to check if the state's form
      *

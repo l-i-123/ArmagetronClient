@@ -1,7 +1,7 @@
 /**
  * @project     : Argmagetron
  * @file        : Player.java
- * @author(s)   : Thomas Léchaire, Kevin Pradervand, Elie N'Djoli Bohulu, Michaël Brouchoud
+ * @author(s)   : Thomas Lechaire, Kevin Pradervand, Elie N'Djoli Bohulu, Michael Brouchoud
  * @date        : 08.06.2017
  *
  * @brief        : Player class

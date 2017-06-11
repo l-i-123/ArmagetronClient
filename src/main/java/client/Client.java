@@ -1,7 +1,7 @@
 /**
  * @project     : Argmagetron
  * @file        : Client.java
- * @author(s)   : Thomas Léchaire, Kevin Pradervand, Elie N'Djoli Bohulu, Michaël Brouchoud
+ * @author(s)   : Thomas Lechaire, Kevin Pradervand, Elie N'Djoli Bohulu, Michael Brouchoud
  * @date        : 08.06.2017
  *
  * @brief        : Client Class that generate the play ground window
@@ -49,11 +49,9 @@ public class Client implements Runnable {
     /**
      * @fn connect
      *
-     * @brief methode that connect the client to the server
-     *
-     * @param void
+     * @brief method that connect the client to the server
      */
-    public void connect(){
+    private void connect(){
         try{
             socket = new Socket(serverAddress, port);
         }catch(Exception e){
@@ -73,17 +71,15 @@ public class Client implements Runnable {
 
         this.thread.start();
 
-        //this.sendData(new ConnectionData(this.username, new Color(Util.rand.nextInt(255), Util.rand.nextInt(255), Util.rand.nextInt(255))));
         this.sendData(new ConnectionData(this.username, userColor));
     }
 
     /**
-     * @fn sendData
+     * @fn void sendData(Object o)
      *
-     * @brief methode to send Data to the server
+     * @brief method to send Data to the server
      *
-     * @param o
-     * @param void
+     * @param o The object to send
      */
     public void sendData(Object o) {
         if(!socket.isConnected()) {
@@ -102,13 +98,11 @@ public class Client implements Runnable {
     }
 
     /**
-     * @fn close
+     * @fn private void close()
      *
      * @brief methode that close socket and connection with the server
-     *
-     * @param void
      */
-    public void close(){
+    private void close(){
         this.keepGoing = false;
         try {
             if(output != null) output.close();

@@ -1,0 +1,1869 @@
+{
+	"_type": "Project",
+	"_id": "AAAAAAFF+h6SjaM2Hec=",
+	"name": "Untitled",
+	"ownedElements": [
+		{
+			"_type": "UMLModel",
+			"_id": "AAAAAAFF+qBWK6M3Z8Y=",
+			"_parent": {
+				"$ref": "AAAAAAFF+h6SjaM2Hec="
+			},
+			"name": "Model",
+			"ownedElements": [
+				{
+					"_type": "UMLClassDiagram",
+					"_id": "AAAAAAFF+qBtyKM79qY=",
+					"_parent": {
+						"$ref": "AAAAAAFF+qBWK6M3Z8Y="
+					},
+					"name": "Main",
+					"visible": true,
+					"defaultDiagram": true
+				},
+				{
+					"_type": "UMLPackage",
+					"_id": "AAAAAAFckvvfT2gGrV4=",
+					"_parent": {
+						"$ref": "AAAAAAFF+qBWK6M3Z8Y="
+					},
+					"name": "client",
+					"ownedElements": [
+						{
+							"_type": "UMLClass",
+							"_id": "AAAAAAFckvvfT2gH4Gg=",
+							"_parent": {
+								"$ref": "AAAAAAFckvvfT2gGrV4="
+							},
+							"name": "Client",
+							"documentation": "controller.connect(\"localhost\",\"Kevin\", Color.blue);\r\n        Assert.assertNotNull(controller.getClient());\n@project     : Argmagetron\n@file        : Client.java\n@author(s)   : Thomas Léchaire, Kevin Pradervand, Elie N'Djoli Bohulu, Michaël Brouchoud\n@date        : 08.06.2017\n@brief        : Client Class that generate the play ground window",
+							"visibility": "public",
+							"attributes": [
+								{
+									"_type": "UMLAttribute",
+									"_id": "AAAAAAFckvvf1Wh2uZk=",
+									"_parent": {
+										"$ref": "AAAAAAFckvvfT2gH4Gg="
+									},
+									"name": "input",
+									"visibility": "private",
+									"isStatic": false,
+									"isLeaf": false,
+									"type": {
+										"$ref": "AAAAAAFckvvf32i0AGE="
+									},
+									"isReadOnly": false,
+									"isOrdered": false,
+									"isUnique": false,
+									"isDerived": false,
+									"aggregation": "none",
+									"isID": false
+								},
+								{
+									"_type": "UMLAttribute",
+									"_id": "AAAAAAFckvvf1Wh32d4=",
+									"_parent": {
+										"$ref": "AAAAAAFckvvfT2gH4Gg="
+									},
+									"name": "output",
+									"visibility": "private",
+									"isStatic": false,
+									"isLeaf": false,
+									"type": {
+										"$ref": "AAAAAAFckvvf32i1LTE="
+									},
+									"isReadOnly": false,
+									"isOrdered": false,
+									"isUnique": false,
+									"isDerived": false,
+									"aggregation": "none",
+									"isID": false
+								},
+								{
+									"_type": "UMLAttribute",
+									"_id": "AAAAAAFckvvf1mh4Ut0=",
+									"_parent": {
+										"$ref": "AAAAAAFckvvfT2gH4Gg="
+									},
+									"name": "socket",
+									"visibility": "private",
+									"isStatic": false,
+									"isLeaf": false,
+									"type": {
+										"$ref": "AAAAAAFckvvf32i2tqw="
+									},
+									"isReadOnly": false,
+									"isOrdered": false,
+									"isUnique": false,
+									"isDerived": false,
+									"aggregation": "none",
+									"isID": false
+								},
+								{
+									"_type": "UMLAttribute",
+									"_id": "AAAAAAFckvvf1mh57Xw=",
+									"_parent": {
+										"$ref": "AAAAAAFckvvfT2gH4Gg="
+									},
+									"name": "thread",
+									"visibility": "private",
+									"isStatic": false,
+									"isLeaf": false,
+									"type": {
+										"$ref": "AAAAAAFckvvf32i398U="
+									},
+									"isReadOnly": false,
+									"isOrdered": false,
+									"isUnique": false,
+									"isDerived": false,
+									"aggregation": "none",
+									"isID": false
+								},
+								{
+									"_type": "UMLAttribute",
+									"_id": "AAAAAAFckvvf1mh6dxY=",
+									"_parent": {
+										"$ref": "AAAAAAFckvvfT2gH4Gg="
+									},
+									"name": "keepGoing",
+									"visibility": "private",
+									"isStatic": false,
+									"isLeaf": false,
+									"type": "boolean",
+									"isReadOnly": false,
+									"isOrdered": false,
+									"isUnique": false,
+									"isDerived": false,
+									"aggregation": "none",
+									"isID": false
+								},
+								{
+									"_type": "UMLAttribute",
+									"_id": "AAAAAAFckvvf1mh7e40=",
+									"_parent": {
+										"$ref": "AAAAAAFckvvfT2gH4Gg="
+									},
+									"name": "serverAddress",
+									"visibility": "private",
+									"isStatic": false,
+									"isLeaf": false,
+									"type": "String",
+									"isReadOnly": false,
+									"isOrdered": false,
+									"isUnique": false,
+									"isDerived": false,
+									"aggregation": "none",
+									"isID": false
+								},
+								{
+									"_type": "UMLAttribute",
+									"_id": "AAAAAAFckvvf1mh8DKE=",
+									"_parent": {
+										"$ref": "AAAAAAFckvvfT2gH4Gg="
+									},
+									"name": "username",
+									"visibility": "private",
+									"isStatic": false,
+									"isLeaf": false,
+									"type": "String",
+									"isReadOnly": false,
+									"isOrdered": false,
+									"isUnique": false,
+									"isDerived": false,
+									"aggregation": "none",
+									"isID": false
+								},
+								{
+									"_type": "UMLAttribute",
+									"_id": "AAAAAAFckvvf1mh9knQ=",
+									"_parent": {
+										"$ref": "AAAAAAFckvvfT2gH4Gg="
+									},
+									"name": "port",
+									"visibility": "private",
+									"isStatic": false,
+									"isLeaf": false,
+									"type": "int",
+									"isReadOnly": false,
+									"isOrdered": false,
+									"isUnique": false,
+									"isDerived": false,
+									"aggregation": "none",
+									"isID": false
+								},
+								{
+									"_type": "UMLAttribute",
+									"_id": "AAAAAAFckvvf1mh+rXk=",
+									"_parent": {
+										"$ref": "AAAAAAFckvvfT2gH4Gg="
+									},
+									"name": "userColor",
+									"visibility": "private",
+									"isStatic": false,
+									"isLeaf": false,
+									"type": {
+										"$ref": "AAAAAAFckvvf3WioiMM="
+									},
+									"isReadOnly": false,
+									"isOrdered": false,
+									"isUnique": false,
+									"isDerived": false,
+									"aggregation": "none",
+									"isID": false
+								},
+								{
+									"_type": "UMLAttribute",
+									"_id": "AAAAAAFckvvf1mh/cq4=",
+									"_parent": {
+										"$ref": "AAAAAAFckvvfT2gH4Gg="
+									},
+									"name": "controller",
+									"visibility": "private",
+									"isStatic": false,
+									"isLeaf": false,
+									"type": {
+										"$ref": "AAAAAAFckvvf3WinUTw="
+									},
+									"isReadOnly": false,
+									"isOrdered": false,
+									"isUnique": false,
+									"isDerived": false,
+									"aggregation": "none",
+									"isID": false
+								}
+							],
+							"operations": [
+								{
+									"_type": "UMLOperation",
+									"_id": "AAAAAAFckvvfUGgID74=",
+									"_parent": {
+										"$ref": "AAAAAAFckvvfT2gH4Gg="
+									},
+									"name": "Client",
+									"stereotype": "constructor",
+									"visibility": "public",
+									"isStatic": false,
+									"isLeaf": false,
+									"parameters": [
+										{
+											"_type": "UMLParameter",
+											"_id": "AAAAAAFckvvfUGgJ55A=",
+											"_parent": {
+												"$ref": "AAAAAAFckvvfUGgID74="
+											},
+											"name": "serverAddress",
+											"visibility": "public",
+											"isStatic": false,
+											"isLeaf": false,
+											"type": "String",
+											"isReadOnly": false,
+											"isOrdered": false,
+											"isUnique": false,
+											"direction": "in"
+										},
+										{
+											"_type": "UMLParameter",
+											"_id": "AAAAAAFckvvfUGgKsfM=",
+											"_parent": {
+												"$ref": "AAAAAAFckvvfUGgID74="
+											},
+											"name": "port",
+											"visibility": "public",
+											"isStatic": false,
+											"isLeaf": false,
+											"type": "int",
+											"isReadOnly": false,
+											"isOrdered": false,
+											"isUnique": false,
+											"direction": "in"
+										},
+										{
+											"_type": "UMLParameter",
+											"_id": "AAAAAAFckvvfUGgLEqM=",
+											"_parent": {
+												"$ref": "AAAAAAFckvvfUGgID74="
+											},
+											"name": "username",
+											"visibility": "public",
+											"isStatic": false,
+											"isLeaf": false,
+											"type": "String",
+											"isReadOnly": false,
+											"isOrdered": false,
+											"isUnique": false,
+											"direction": "in"
+										},
+										{
+											"_type": "UMLParameter",
+											"_id": "AAAAAAFckvvfUGgMdmE=",
+											"_parent": {
+												"$ref": "AAAAAAFckvvfUGgID74="
+											},
+											"name": "controller",
+											"visibility": "public",
+											"isStatic": false,
+											"isLeaf": false,
+											"type": {
+												"$ref": "AAAAAAFckvvf3WinUTw="
+											},
+											"isReadOnly": false,
+											"isOrdered": false,
+											"isUnique": false,
+											"direction": "in"
+										},
+										{
+											"_type": "UMLParameter",
+											"_id": "AAAAAAFckvvfUGgNxvM=",
+											"_parent": {
+												"$ref": "AAAAAAFckvvfUGgID74="
+											},
+											"name": "userColor",
+											"visibility": "public",
+											"isStatic": false,
+											"isLeaf": false,
+											"type": {
+												"$ref": "AAAAAAFckvvf3WioiMM="
+											},
+											"isReadOnly": false,
+											"isOrdered": false,
+											"isUnique": false,
+											"direction": "in"
+										}
+									],
+									"concurrency": "sequential",
+									"isQuery": false,
+									"isAbstract": false
+								},
+								{
+									"_type": "UMLOperation",
+									"_id": "AAAAAAFckvvfUGgO6BQ=",
+									"_parent": {
+										"$ref": "AAAAAAFckvvfT2gH4Gg="
+									},
+									"name": "connect",
+									"documentation": "@fn connect\n@brief method that connect the client to the server",
+									"visibility": "private",
+									"isStatic": false,
+									"isLeaf": false,
+									"parameters": [
+										{
+											"_type": "UMLParameter",
+											"_id": "AAAAAAFckvvfUGgPsww=",
+											"_parent": {
+												"$ref": "AAAAAAFckvvfUGgO6BQ="
+											},
+											"visibility": "public",
+											"isStatic": false,
+											"isLeaf": false,
+											"type": "void",
+											"isReadOnly": false,
+											"isOrdered": false,
+											"isUnique": false,
+											"direction": "return"
+										}
+									],
+									"concurrency": "sequential",
+									"isQuery": false,
+									"isAbstract": false
+								},
+								{
+									"_type": "UMLOperation",
+									"_id": "AAAAAAFckvvfUWgQbEE=",
+									"_parent": {
+										"$ref": "AAAAAAFckvvfT2gH4Gg="
+									},
+									"name": "sendData",
+									"documentation": "@fn void sendData(Object o)\n@brief method to send Data to the server\n@param o The object to send",
+									"visibility": "public",
+									"isStatic": false,
+									"isLeaf": false,
+									"parameters": [
+										{
+											"_type": "UMLParameter",
+											"_id": "AAAAAAFckvvfUWgRPY0=",
+											"_parent": {
+												"$ref": "AAAAAAFckvvfUWgQbEE="
+											},
+											"name": "o",
+											"visibility": "public",
+											"isStatic": false,
+											"isLeaf": false,
+											"type": {
+												"$ref": "AAAAAAFckvvf3Wip/Yk="
+											},
+											"isReadOnly": false,
+											"isOrdered": false,
+											"isUnique": false,
+											"direction": "in"
+										},
+										{
+											"_type": "UMLParameter",
+											"_id": "AAAAAAFckvvfUWgSi5w=",
+											"_parent": {
+												"$ref": "AAAAAAFckvvfUWgQbEE="
+											},
+											"visibility": "public",
+											"isStatic": false,
+											"isLeaf": false,
+											"type": "void",
+											"isReadOnly": false,
+											"isOrdered": false,
+											"isUnique": false,
+											"direction": "return"
+										}
+									],
+									"concurrency": "sequential",
+									"isQuery": false,
+									"isAbstract": false
+								},
+								{
+									"_type": "UMLOperation",
+									"_id": "AAAAAAFckvvfUWgTO0U=",
+									"_parent": {
+										"$ref": "AAAAAAFckvvfT2gH4Gg="
+									},
+									"name": "close",
+									"documentation": "@fn private void close()\n@brief methode that close socket and connection with the server",
+									"visibility": "private",
+									"isStatic": false,
+									"isLeaf": false,
+									"parameters": [
+										{
+											"_type": "UMLParameter",
+											"_id": "AAAAAAFckvvfUWgUvxI=",
+											"_parent": {
+												"$ref": "AAAAAAFckvvfUWgTO0U="
+											},
+											"visibility": "public",
+											"isStatic": false,
+											"isLeaf": false,
+											"type": "void",
+											"isReadOnly": false,
+											"isOrdered": false,
+											"isUnique": false,
+											"direction": "return"
+										}
+									],
+									"concurrency": "sequential",
+									"isQuery": false,
+									"isAbstract": false
+								},
+								{
+									"_type": "UMLOperation",
+									"_id": "AAAAAAFckvvfUWgVdFg=",
+									"_parent": {
+										"$ref": "AAAAAAFckvvfT2gH4Gg="
+									},
+									"name": "run",
+									"visibility": "public",
+									"isStatic": false,
+									"isLeaf": false,
+									"parameters": [
+										{
+											"_type": "UMLParameter",
+											"_id": "AAAAAAFckvvfUWgWsp4=",
+											"_parent": {
+												"$ref": "AAAAAAFckvvfUWgVdFg="
+											},
+											"visibility": "public",
+											"isStatic": false,
+											"isLeaf": false,
+											"type": "void",
+											"isReadOnly": false,
+											"isOrdered": false,
+											"isUnique": false,
+											"direction": "return"
+										}
+									],
+									"concurrency": "sequential",
+									"isQuery": false,
+									"isAbstract": false
+								}
+							],
+							"isAbstract": false,
+							"isFinalSpecialization": false,
+							"isLeaf": false,
+							"isActive": false
+						},
+						{
+							"_type": "UMLClass",
+							"_id": "AAAAAAFckvvfVWgXoE4=",
+							"_parent": {
+								"$ref": "AAAAAAFckvvfT2gGrV4="
+							},
+							"name": "Game",
+							"ownedElements": [
+								{
+									"_type": "UMLAssociation",
+									"_id": "AAAAAAFckvvf1miA5kw=",
+									"_parent": {
+										"$ref": "AAAAAAFckvvfVWgXoE4="
+									},
+									"end1": {
+										"_type": "UMLAssociationEnd",
+										"_id": "AAAAAAFckvvf1miBdsU=",
+										"_parent": {
+											"$ref": "AAAAAAFckvvf1miA5kw="
+										},
+										"reference": {
+											"$ref": "AAAAAAFckvvfVWgXoE4="
+										},
+										"visibility": "package",
+										"navigable": false,
+										"aggregation": "none",
+										"isReadOnly": false,
+										"isOrdered": false,
+										"isUnique": false,
+										"isDerived": false,
+										"isID": false
+									},
+									"end2": {
+										"_type": "UMLAssociationEnd",
+										"_id": "AAAAAAFckvvf12iC49s=",
+										"_parent": {
+											"$ref": "AAAAAAFckvvf1miA5kw="
+										},
+										"name": "players",
+										"tags": [
+											{
+												"_type": "Tag",
+												"_id": "AAAAAAFckvvf12iDNBg=",
+												"_parent": {
+													"$ref": "AAAAAAFckvvf12iC49s="
+												},
+												"name": "collection",
+												"kind": "string",
+												"value": "ArrayList",
+												"checked": false,
+												"number": 0
+											}
+										],
+										"reference": {
+											"$ref": "AAAAAAFckvvfXmghdcY="
+										},
+										"visibility": "private",
+										"navigable": true,
+										"aggregation": "none",
+										"multiplicity": "*",
+										"isReadOnly": false,
+										"isOrdered": false,
+										"isUnique": false,
+										"isDerived": false,
+										"isID": false
+									},
+									"visibility": "public",
+									"isDerived": false
+								}
+							],
+							"documentation": "@project     : Argmagetron\n@file        : Game.java\n@author(s)   : Thomas Léchaire, Kevin Pradervand, Elie N'Djoli Bohulu, Michaël Brouchoud\n@date        : 08.06.2017\n@brief        : Game class that manage local data for players",
+							"visibility": "public",
+							"operations": [
+								{
+									"_type": "UMLOperation",
+									"_id": "AAAAAAFckvvfVWgYkVs=",
+									"_parent": {
+										"$ref": "AAAAAAFckvvfVWgXoE4="
+									},
+									"name": "Game",
+									"stereotype": "constructor",
+									"visibility": "public",
+									"isStatic": false,
+									"isLeaf": false,
+									"concurrency": "sequential",
+									"isQuery": false,
+									"isAbstract": false
+								},
+								{
+									"_type": "UMLOperation",
+									"_id": "AAAAAAFckvvfVWgZfS0=",
+									"_parent": {
+										"$ref": "AAAAAAFckvvfVWgXoE4="
+									},
+									"name": "getPlayers",
+									"documentation": "@fn getPlayers\n@brief methode that return a list of all players\n@param ArrayList<Player>",
+									"visibility": "public",
+									"isStatic": false,
+									"isLeaf": false,
+									"parameters": [
+										{
+											"_type": "UMLParameter",
+											"_id": "AAAAAAFckvvfVWgaEZQ=",
+											"_parent": {
+												"$ref": "AAAAAAFckvvfVWgZfS0="
+											},
+											"tags": [
+												{
+													"_type": "Tag",
+													"_id": "AAAAAAFckvvf3WiqNgo=",
+													"_parent": {
+														"$ref": "AAAAAAFckvvfVWgaEZQ="
+													},
+													"name": "collection",
+													"kind": "string",
+													"value": "ArrayList",
+													"checked": false,
+													"number": 0
+												}
+											],
+											"visibility": "public",
+											"isStatic": false,
+											"isLeaf": false,
+											"type": {
+												"$ref": "AAAAAAFckvvf3Wirhns="
+											},
+											"multiplicity": "*",
+											"isReadOnly": false,
+											"isOrdered": false,
+											"isUnique": false,
+											"direction": "return"
+										}
+									],
+									"concurrency": "sequential",
+									"isQuery": false,
+									"isAbstract": false
+								},
+								{
+									"_type": "UMLOperation",
+									"_id": "AAAAAAFckvvfVWgb1/s=",
+									"_parent": {
+										"$ref": "AAAAAAFckvvfVWgXoE4="
+									},
+									"name": "add",
+									"documentation": "@fn add\n@brief methode to add a player in the players list\n@param player\n@param void",
+									"visibility": "public",
+									"isStatic": false,
+									"isLeaf": false,
+									"parameters": [
+										{
+											"_type": "UMLParameter",
+											"_id": "AAAAAAFckvvfVWgceAE=",
+											"_parent": {
+												"$ref": "AAAAAAFckvvfVWgb1/s="
+											},
+											"name": "player",
+											"visibility": "public",
+											"isStatic": false,
+											"isLeaf": false,
+											"type": {
+												"$ref": "AAAAAAFckvvfXmghdcY="
+											},
+											"isReadOnly": false,
+											"isOrdered": false,
+											"isUnique": false,
+											"direction": "in"
+										},
+										{
+											"_type": "UMLParameter",
+											"_id": "AAAAAAFckvvfVWgd+5k=",
+											"_parent": {
+												"$ref": "AAAAAAFckvvfVWgb1/s="
+											},
+											"visibility": "public",
+											"isStatic": false,
+											"isLeaf": false,
+											"type": "void",
+											"isReadOnly": false,
+											"isOrdered": false,
+											"isUnique": false,
+											"direction": "return"
+										}
+									],
+									"concurrency": "sequential",
+									"isQuery": false,
+									"isAbstract": false
+								},
+								{
+									"_type": "UMLOperation",
+									"_id": "AAAAAAFckvvfVWge5W4=",
+									"_parent": {
+										"$ref": "AAAAAAFckvvfVWgXoE4="
+									},
+									"name": "setPlayers",
+									"documentation": "@fn setPlayers\n@brief methode that create the players list from the playersData send from the server\n@param playersData\n@param void",
+									"visibility": "public",
+									"isStatic": false,
+									"isLeaf": false,
+									"parameters": [
+										{
+											"_type": "UMLParameter",
+											"_id": "AAAAAAFckvvfVWgfttQ=",
+											"_parent": {
+												"$ref": "AAAAAAFckvvfVWge5W4="
+											},
+											"name": "playersData",
+											"tags": [
+												{
+													"_type": "Tag",
+													"_id": "AAAAAAFckvvf3misIKw=",
+													"_parent": {
+														"$ref": "AAAAAAFckvvfVWgfttQ="
+													},
+													"name": "collection",
+													"kind": "string",
+													"value": "ArrayList",
+													"checked": false,
+													"number": 0
+												}
+											],
+											"visibility": "public",
+											"isStatic": false,
+											"isLeaf": false,
+											"type": {
+												"$ref": "AAAAAAFckvvf3mitOqs="
+											},
+											"multiplicity": "*",
+											"isReadOnly": false,
+											"isOrdered": false,
+											"isUnique": false,
+											"direction": "in"
+										},
+										{
+											"_type": "UMLParameter",
+											"_id": "AAAAAAFckvvfVWggUkw=",
+											"_parent": {
+												"$ref": "AAAAAAFckvvfVWge5W4="
+											},
+											"visibility": "public",
+											"isStatic": false,
+											"isLeaf": false,
+											"type": "void",
+											"isReadOnly": false,
+											"isOrdered": false,
+											"isUnique": false,
+											"direction": "return"
+										}
+									],
+									"concurrency": "sequential",
+									"isQuery": false,
+									"isAbstract": false
+								}
+							],
+							"isAbstract": false,
+							"isFinalSpecialization": false,
+							"isLeaf": false,
+							"isActive": false
+						},
+						{
+							"_type": "UMLClass",
+							"_id": "AAAAAAFckvvfXmghdcY=",
+							"_parent": {
+								"$ref": "AAAAAAFckvvfT2gGrV4="
+							},
+							"name": "Player",
+							"documentation": "@project     : Argmagetron\n@file        : Player.java\n@author(s)   : Thomas Léchaire, Kevin Pradervand, Elie N'Djoli Bohulu, Michaël Brouchoud\n@date        : 08.06.2017\n@brief        : Player class",
+							"visibility": "public",
+							"attributes": [
+								{
+									"_type": "UMLAttribute",
+									"_id": "AAAAAAFckvvf12iEpKA=",
+									"_parent": {
+										"$ref": "AAAAAAFckvvfXmghdcY="
+									},
+									"name": "uniqueId",
+									"visibility": "private",
+									"isStatic": false,
+									"isLeaf": false,
+									"type": {
+										"$ref": "AAAAAAFckvvf3miusOc="
+									},
+									"isReadOnly": false,
+									"isOrdered": false,
+									"isUnique": false,
+									"isDerived": false,
+									"aggregation": "none",
+									"isID": false
+								},
+								{
+									"_type": "UMLAttribute",
+									"_id": "AAAAAAFckvvf12iFzyY=",
+									"_parent": {
+										"$ref": "AAAAAAFckvvfXmghdcY="
+									},
+									"name": "position",
+									"visibility": "private",
+									"isStatic": false,
+									"isLeaf": false,
+									"type": {
+										"$ref": "AAAAAAFckvvf3mivKOI="
+									},
+									"isReadOnly": false,
+									"isOrdered": false,
+									"isUnique": false,
+									"isDerived": false,
+									"aggregation": "none",
+									"isID": false
+								},
+								{
+									"_type": "UMLAttribute",
+									"_id": "AAAAAAFckvvf12iGNUw=",
+									"_parent": {
+										"$ref": "AAAAAAFckvvfXmghdcY="
+									},
+									"name": "color",
+									"visibility": "private",
+									"isStatic": false,
+									"isLeaf": false,
+									"type": {
+										"$ref": "AAAAAAFckvvf3WioiMM="
+									},
+									"isReadOnly": false,
+									"isOrdered": false,
+									"isUnique": false,
+									"isDerived": false,
+									"aggregation": "none",
+									"isID": false
+								},
+								{
+									"_type": "UMLAttribute",
+									"_id": "AAAAAAFckvvf2WiHf44=",
+									"_parent": {
+										"$ref": "AAAAAAFckvvfXmghdcY="
+									},
+									"name": "username",
+									"visibility": "private",
+									"isStatic": false,
+									"isLeaf": false,
+									"type": "String",
+									"isReadOnly": false,
+									"isOrdered": false,
+									"isUnique": false,
+									"isDerived": false,
+									"aggregation": "none",
+									"isID": false
+								},
+								{
+									"_type": "UMLAttribute",
+									"_id": "AAAAAAFckvvf2WiIxao=",
+									"_parent": {
+										"$ref": "AAAAAAFckvvfXmghdcY="
+									},
+									"name": "isAlive",
+									"visibility": "private",
+									"isStatic": false,
+									"isLeaf": false,
+									"type": "boolean",
+									"isReadOnly": false,
+									"isOrdered": false,
+									"isUnique": false,
+									"isDerived": false,
+									"aggregation": "none",
+									"isID": false
+								}
+							],
+							"operations": [
+								{
+									"_type": "UMLOperation",
+									"_id": "AAAAAAFckvvfXmgioPg=",
+									"_parent": {
+										"$ref": "AAAAAAFckvvfXmghdcY="
+									},
+									"name": "Player",
+									"stereotype": "constructor",
+									"visibility": "public",
+									"isStatic": false,
+									"isLeaf": false,
+									"parameters": [
+										{
+											"_type": "UMLParameter",
+											"_id": "AAAAAAFckvvfXmgj5s4=",
+											"_parent": {
+												"$ref": "AAAAAAFckvvfXmgioPg="
+											},
+											"name": "uniqueId",
+											"visibility": "public",
+											"isStatic": false,
+											"isLeaf": false,
+											"type": {
+												"$ref": "AAAAAAFckvvf3miusOc="
+											},
+											"isReadOnly": false,
+											"isOrdered": false,
+											"isUnique": false,
+											"direction": "in"
+										},
+										{
+											"_type": "UMLParameter",
+											"_id": "AAAAAAFckvvfXmgkwu8=",
+											"_parent": {
+												"$ref": "AAAAAAFckvvfXmgioPg="
+											},
+											"name": "position",
+											"visibility": "public",
+											"isStatic": false,
+											"isLeaf": false,
+											"type": {
+												"$ref": "AAAAAAFckvvf3mivKOI="
+											},
+											"isReadOnly": false,
+											"isOrdered": false,
+											"isUnique": false,
+											"direction": "in"
+										},
+										{
+											"_type": "UMLParameter",
+											"_id": "AAAAAAFckvvfXmglZek=",
+											"_parent": {
+												"$ref": "AAAAAAFckvvfXmgioPg="
+											},
+											"name": "color",
+											"visibility": "public",
+											"isStatic": false,
+											"isLeaf": false,
+											"type": {
+												"$ref": "AAAAAAFckvvf3WioiMM="
+											},
+											"isReadOnly": false,
+											"isOrdered": false,
+											"isUnique": false,
+											"direction": "in"
+										},
+										{
+											"_type": "UMLParameter",
+											"_id": "AAAAAAFckvvfXmgmcqM=",
+											"_parent": {
+												"$ref": "AAAAAAFckvvfXmgioPg="
+											},
+											"name": "username",
+											"visibility": "public",
+											"isStatic": false,
+											"isLeaf": false,
+											"type": "String",
+											"isReadOnly": false,
+											"isOrdered": false,
+											"isUnique": false,
+											"direction": "in"
+										},
+										{
+											"_type": "UMLParameter",
+											"_id": "AAAAAAFckvvfXmgnwS0=",
+											"_parent": {
+												"$ref": "AAAAAAFckvvfXmgioPg="
+											},
+											"name": "isAlive",
+											"visibility": "public",
+											"isStatic": false,
+											"isLeaf": false,
+											"type": "boolean",
+											"isReadOnly": false,
+											"isOrdered": false,
+											"isUnique": false,
+											"direction": "in"
+										}
+									],
+									"concurrency": "sequential",
+									"isQuery": false,
+									"isAbstract": false
+								},
+								{
+									"_type": "UMLOperation",
+									"_id": "AAAAAAFckvvfXmgozQM=",
+									"_parent": {
+										"$ref": "AAAAAAFckvvfXmghdcY="
+									},
+									"name": "getUniqueId",
+									"documentation": "@fn getUniqueId\n@brief Methode to get the UniqueID of the player\n@return UUID",
+									"visibility": "public",
+									"isStatic": false,
+									"isLeaf": false,
+									"parameters": [
+										{
+											"_type": "UMLParameter",
+											"_id": "AAAAAAFckvvfXmgpuP8=",
+											"_parent": {
+												"$ref": "AAAAAAFckvvfXmgozQM="
+											},
+											"visibility": "public",
+											"isStatic": false,
+											"isLeaf": false,
+											"type": {
+												"$ref": "AAAAAAFckvvf3miusOc="
+											},
+											"isReadOnly": false,
+											"isOrdered": false,
+											"isUnique": false,
+											"direction": "return"
+										}
+									],
+									"concurrency": "sequential",
+									"isQuery": false,
+									"isAbstract": false
+								},
+								{
+									"_type": "UMLOperation",
+									"_id": "AAAAAAFckvvfXmgqCsg=",
+									"_parent": {
+										"$ref": "AAAAAAFckvvfXmghdcY="
+									},
+									"name": "getColor",
+									"documentation": "@fn getColor\n@brief Methode that return the color of the player\n@return Color",
+									"visibility": "public",
+									"isStatic": false,
+									"isLeaf": false,
+									"parameters": [
+										{
+											"_type": "UMLParameter",
+											"_id": "AAAAAAFckvvfXmgrwV0=",
+											"_parent": {
+												"$ref": "AAAAAAFckvvfXmgqCsg="
+											},
+											"visibility": "public",
+											"isStatic": false,
+											"isLeaf": false,
+											"type": {
+												"$ref": "AAAAAAFckvvf3WioiMM="
+											},
+											"isReadOnly": false,
+											"isOrdered": false,
+											"isUnique": false,
+											"direction": "return"
+										}
+									],
+									"concurrency": "sequential",
+									"isQuery": false,
+									"isAbstract": false
+								},
+								{
+									"_type": "UMLOperation",
+									"_id": "AAAAAAFckvvfXmgsEj4=",
+									"_parent": {
+										"$ref": "AAAAAAFckvvfXmghdcY="
+									},
+									"name": "getUsername",
+									"documentation": "@fn getUsername\n@brief Methode that return the player's username\n@return String",
+									"visibility": "public",
+									"isStatic": false,
+									"isLeaf": false,
+									"parameters": [
+										{
+											"_type": "UMLParameter",
+											"_id": "AAAAAAFckvvfXmgtUWg=",
+											"_parent": {
+												"$ref": "AAAAAAFckvvfXmgsEj4="
+											},
+											"visibility": "public",
+											"isStatic": false,
+											"isLeaf": false,
+											"type": "String",
+											"isReadOnly": false,
+											"isOrdered": false,
+											"isUnique": false,
+											"direction": "return"
+										}
+									],
+									"concurrency": "sequential",
+									"isQuery": false,
+									"isAbstract": false
+								},
+								{
+									"_type": "UMLOperation",
+									"_id": "AAAAAAFckvvfXmgutX4=",
+									"_parent": {
+										"$ref": "AAAAAAFckvvfXmghdcY="
+									},
+									"name": "getPosition",
+									"documentation": "@fn getPosition\n@brief Methode that return the player's position\n@return Point",
+									"visibility": "public",
+									"isStatic": false,
+									"isLeaf": false,
+									"parameters": [
+										{
+											"_type": "UMLParameter",
+											"_id": "AAAAAAFckvvfXmgvzXA=",
+											"_parent": {
+												"$ref": "AAAAAAFckvvfXmgutX4="
+											},
+											"visibility": "public",
+											"isStatic": false,
+											"isLeaf": false,
+											"type": {
+												"$ref": "AAAAAAFckvvf3mivKOI="
+											},
+											"isReadOnly": false,
+											"isOrdered": false,
+											"isUnique": false,
+											"direction": "return"
+										}
+									],
+									"concurrency": "sequential",
+									"isQuery": false,
+									"isAbstract": false
+								},
+								{
+									"_type": "UMLOperation",
+									"_id": "AAAAAAFckvvfXmgwGgo=",
+									"_parent": {
+										"$ref": "AAAAAAFckvvfXmghdcY="
+									},
+									"name": "isAlive",
+									"documentation": "@fn isAlive\n@brief Methode that return the player state (alive or not)\n@return boolean",
+									"visibility": "public",
+									"isStatic": false,
+									"isLeaf": false,
+									"parameters": [
+										{
+											"_type": "UMLParameter",
+											"_id": "AAAAAAFckvvfXmgx3RI=",
+											"_parent": {
+												"$ref": "AAAAAAFckvvfXmgwGgo="
+											},
+											"visibility": "public",
+											"isStatic": false,
+											"isLeaf": false,
+											"type": "boolean",
+											"isReadOnly": false,
+											"isOrdered": false,
+											"isUnique": false,
+											"direction": "return"
+										}
+									],
+									"concurrency": "sequential",
+									"isQuery": false,
+									"isAbstract": false
+								}
+							],
+							"isAbstract": false,
+							"isFinalSpecialization": false,
+							"isLeaf": false,
+							"isActive": false
+						}
+					],
+					"visibility": "public"
+				},
+				{
+					"_type": "UMLPackage",
+					"_id": "AAAAAAFckvvfemgyyRQ=",
+					"_parent": {
+						"$ref": "AAAAAAFF+qBWK6M3Z8Y="
+					},
+					"name": "login",
+					"ownedElements": [
+						{
+							"_type": "UMLClass",
+							"_id": "AAAAAAFckvvfemgz+jc=",
+							"_parent": {
+								"$ref": "AAAAAAFckvvfemgyyRQ="
+							},
+							"name": "LoginController",
+							"documentation": "@project     : Argmagetron\n@file        : LoginController.java\n@author(s)   :  Thomas Léchaire, Kevin Pradervand, Elie N'Djoli Bohulu, Michaël Brouchoud\n@date        : 08.06.2017\n@brief        : Controller of the login windows\nCreated by Kevin on 11.05.2017.",
+							"visibility": "public",
+							"attributes": [
+								{
+									"_type": "UMLAttribute",
+									"_id": "AAAAAAFckvvf2WiJLvo=",
+									"_parent": {
+										"$ref": "AAAAAAFckvvfemgz+jc="
+									},
+									"name": "nickName",
+									"visibility": "private",
+									"isStatic": false,
+									"isLeaf": false,
+									"type": {
+										"$ref": "AAAAAAFckvvf4Gi4t5M="
+									},
+									"isReadOnly": false,
+									"isOrdered": false,
+									"isUnique": false,
+									"isDerived": false,
+									"aggregation": "none",
+									"isID": false
+								},
+								{
+									"_type": "UMLAttribute",
+									"_id": "AAAAAAFckvvf2miKWdc=",
+									"_parent": {
+										"$ref": "AAAAAAFckvvfemgz+jc="
+									},
+									"name": "serverIp",
+									"visibility": "private",
+									"isStatic": false,
+									"isLeaf": false,
+									"type": {
+										"$ref": "AAAAAAFckvvf4Gi4t5M="
+									},
+									"isReadOnly": false,
+									"isOrdered": false,
+									"isUnique": false,
+									"isDerived": false,
+									"aggregation": "none",
+									"isID": false
+								},
+								{
+									"_type": "UMLAttribute",
+									"_id": "AAAAAAFckvvf2miLuJA=",
+									"_parent": {
+										"$ref": "AAAAAAFckvvfemgz+jc="
+									},
+									"name": "colorChoice",
+									"visibility": "private",
+									"isStatic": false,
+									"isLeaf": false,
+									"type": {
+										"$ref": "AAAAAAFckvvf4Gi5mMg="
+									},
+									"isReadOnly": false,
+									"isOrdered": false,
+									"isUnique": false,
+									"isDerived": false,
+									"aggregation": "none",
+									"isID": false
+								},
+								{
+									"_type": "UMLAttribute",
+									"_id": "AAAAAAFckvvf2miM95w=",
+									"_parent": {
+										"$ref": "AAAAAAFckvvfemgz+jc="
+									},
+									"name": "startButton",
+									"visibility": "private",
+									"isStatic": false,
+									"isLeaf": false,
+									"type": {
+										"$ref": "AAAAAAFckvvf4Gi6jvc="
+									},
+									"isReadOnly": false,
+									"isOrdered": false,
+									"isUnique": false,
+									"isDerived": false,
+									"aggregation": "none",
+									"isID": false
+								},
+								{
+									"_type": "UMLAttribute",
+									"_id": "AAAAAAFckvvf2miNSZE=",
+									"_parent": {
+										"$ref": "AAAAAAFckvvfemgz+jc="
+									},
+									"name": "errorMessage",
+									"visibility": "private",
+									"isStatic": false,
+									"isLeaf": false,
+									"type": {
+										"$ref": "AAAAAAFckvvf4Gi71zA="
+									},
+									"isReadOnly": false,
+									"isOrdered": false,
+									"isUnique": false,
+									"isDerived": false,
+									"aggregation": "none",
+									"isID": false
+								},
+								{
+									"_type": "UMLAttribute",
+									"_id": "AAAAAAFckvvf22iOW/s=",
+									"_parent": {
+										"$ref": "AAAAAAFckvvfemgz+jc="
+									},
+									"name": "userName",
+									"visibility": "public",
+									"isStatic": false,
+									"isLeaf": false,
+									"type": "String",
+									"isReadOnly": false,
+									"isOrdered": false,
+									"isUnique": false,
+									"isDerived": false,
+									"aggregation": "none",
+									"isID": false
+								},
+								{
+									"_type": "UMLAttribute",
+									"_id": "AAAAAAFckvvf22iPi54=",
+									"_parent": {
+										"$ref": "AAAAAAFckvvfemgz+jc="
+									},
+									"name": "serverIP",
+									"visibility": "public",
+									"isStatic": false,
+									"isLeaf": false,
+									"type": "String",
+									"isReadOnly": false,
+									"isOrdered": false,
+									"isUnique": false,
+									"isDerived": false,
+									"aggregation": "none",
+									"isID": false
+								},
+								{
+									"_type": "UMLAttribute",
+									"_id": "AAAAAAFckvvf22iQ0oM=",
+									"_parent": {
+										"$ref": "AAAAAAFckvvfemgz+jc="
+									},
+									"name": "userColor",
+									"visibility": "public",
+									"isStatic": false,
+									"isLeaf": false,
+									"type": {
+										"$ref": "AAAAAAFckvvf3WioiMM="
+									},
+									"isReadOnly": false,
+									"isOrdered": false,
+									"isUnique": false,
+									"isDerived": false,
+									"aggregation": "none",
+									"isID": false
+								},
+								{
+									"_type": "UMLAttribute",
+									"_id": "AAAAAAFckvvf22iRP5A=",
+									"_parent": {
+										"$ref": "AAAAAAFckvvfemgz+jc="
+									},
+									"name": "ipReachable",
+									"visibility": "public",
+									"isStatic": false,
+									"isLeaf": false,
+									"type": "boolean",
+									"isReadOnly": false,
+									"isOrdered": false,
+									"isUnique": false,
+									"defaultValue": "false",
+									"isDerived": false,
+									"aggregation": "none",
+									"isID": false
+								},
+								{
+									"_type": "UMLAttribute",
+									"_id": "AAAAAAFckvvf22iSQEI=",
+									"_parent": {
+										"$ref": "AAAAAAFckvvfemgz+jc="
+									},
+									"name": "formOK",
+									"visibility": "private",
+									"isStatic": false,
+									"isLeaf": false,
+									"type": "boolean",
+									"isReadOnly": false,
+									"isOrdered": false,
+									"isUnique": false,
+									"defaultValue": "false",
+									"isDerived": false,
+									"aggregation": "none",
+									"isID": false
+								}
+							],
+							"operations": [
+								{
+									"_type": "UMLOperation",
+									"_id": "AAAAAAFckvvfemg0R+c=",
+									"_parent": {
+										"$ref": "AAAAAAFckvvfemgz+jc="
+									},
+									"name": "init",
+									"documentation": "@fn init\n@brief Methode that initate the LoginController\n@return void",
+									"visibility": "public",
+									"isStatic": false,
+									"isLeaf": false,
+									"parameters": [
+										{
+											"_type": "UMLParameter",
+											"_id": "AAAAAAFckvvfemg1lUs=",
+											"_parent": {
+												"$ref": "AAAAAAFckvvfemg0R+c="
+											},
+											"visibility": "public",
+											"isStatic": false,
+											"isLeaf": false,
+											"type": "void",
+											"isReadOnly": false,
+											"isOrdered": false,
+											"isUnique": false,
+											"direction": "return"
+										}
+									],
+									"concurrency": "sequential",
+									"isQuery": false,
+									"isAbstract": false
+								},
+								{
+									"_type": "UMLOperation",
+									"_id": "AAAAAAFckvvfemg2cnc=",
+									"_parent": {
+										"$ref": "AAAAAAFckvvfemgz+jc="
+									},
+									"name": "checkIP",
+									"documentation": "@fn checkIP\n@brief Methode to check if the IP address is correct or reachable\n@param ip\n@return boolean",
+									"visibility": "public",
+									"isStatic": false,
+									"isLeaf": false,
+									"parameters": [
+										{
+											"_type": "UMLParameter",
+											"_id": "AAAAAAFckvvfemg3ibc=",
+											"_parent": {
+												"$ref": "AAAAAAFckvvfemg2cnc="
+											},
+											"name": "ip",
+											"visibility": "public",
+											"isStatic": false,
+											"isLeaf": false,
+											"type": "String",
+											"isReadOnly": false,
+											"isOrdered": false,
+											"isUnique": false,
+											"direction": "in"
+										},
+										{
+											"_type": "UMLParameter",
+											"_id": "AAAAAAFckvvfemg4D0E=",
+											"_parent": {
+												"$ref": "AAAAAAFckvvfemg2cnc="
+											},
+											"visibility": "public",
+											"isStatic": false,
+											"isLeaf": false,
+											"type": "boolean",
+											"isReadOnly": false,
+											"isOrdered": false,
+											"isUnique": false,
+											"direction": "return"
+										}
+									],
+									"concurrency": "sequential",
+									"isQuery": false,
+									"isAbstract": false
+								},
+								{
+									"_type": "UMLOperation",
+									"_id": "AAAAAAFckvvfemg59Qc=",
+									"_parent": {
+										"$ref": "AAAAAAFckvvfemgz+jc="
+									},
+									"name": "checkName",
+									"documentation": "@fn checkName\n@brief Methode to check if the name of the palyer is correct\n@param name\n@return boolean",
+									"visibility": "public",
+									"isStatic": false,
+									"isLeaf": false,
+									"parameters": [
+										{
+											"_type": "UMLParameter",
+											"_id": "AAAAAAFckvvfemg6zOc=",
+											"_parent": {
+												"$ref": "AAAAAAFckvvfemg59Qc="
+											},
+											"name": "name",
+											"visibility": "public",
+											"isStatic": false,
+											"isLeaf": false,
+											"type": "String",
+											"isReadOnly": false,
+											"isOrdered": false,
+											"isUnique": false,
+											"direction": "in"
+										},
+										{
+											"_type": "UMLParameter",
+											"_id": "AAAAAAFckvvfemg7+Ng=",
+											"_parent": {
+												"$ref": "AAAAAAFckvvfemg59Qc="
+											},
+											"visibility": "public",
+											"isStatic": false,
+											"isLeaf": false,
+											"type": "boolean",
+											"isReadOnly": false,
+											"isOrdered": false,
+											"isUnique": false,
+											"direction": "return"
+										}
+									],
+									"concurrency": "sequential",
+									"isQuery": false,
+									"isAbstract": false
+								},
+								{
+									"_type": "UMLOperation",
+									"_id": "AAAAAAFckvvfemg8avk=",
+									"_parent": {
+										"$ref": "AAAAAAFckvvfemgz+jc="
+									},
+									"name": "checkColor",
+									"documentation": "@fn checkColor\n@brief Methode to check if the player'scolor is different from white\n@param color\n@return boolean",
+									"visibility": "public",
+									"isStatic": false,
+									"isLeaf": false,
+									"parameters": [
+										{
+											"_type": "UMLParameter",
+											"_id": "AAAAAAFckvvfemg93Ls=",
+											"_parent": {
+												"$ref": "AAAAAAFckvvfemg8avk="
+											},
+											"name": "color",
+											"visibility": "public",
+											"isStatic": false,
+											"isLeaf": false,
+											"type": {
+												"$ref": "AAAAAAFckvvf3WioiMM="
+											},
+											"isReadOnly": false,
+											"isOrdered": false,
+											"isUnique": false,
+											"direction": "in"
+										},
+										{
+											"_type": "UMLParameter",
+											"_id": "AAAAAAFckvvfemg+na4=",
+											"_parent": {
+												"$ref": "AAAAAAFckvvfemg8avk="
+											},
+											"visibility": "public",
+											"isStatic": false,
+											"isLeaf": false,
+											"type": "boolean",
+											"isReadOnly": false,
+											"isOrdered": false,
+											"isUnique": false,
+											"direction": "return"
+										}
+									],
+									"concurrency": "sequential",
+									"isQuery": false,
+									"isAbstract": false
+								},
+								{
+									"_type": "UMLOperation",
+									"_id": "AAAAAAFckvvfemg/Pnk=",
+									"_parent": {
+										"$ref": "AAAAAAFckvvfemgz+jc="
+									},
+									"name": "checkForm",
+									"documentation": "@fn checkForm\n@brief Methode to check if the state's form\n@return boolean",
+									"visibility": "public",
+									"isStatic": false,
+									"isLeaf": false,
+									"parameters": [
+										{
+											"_type": "UMLParameter",
+											"_id": "AAAAAAFckvvfemhAZtA=",
+											"_parent": {
+												"$ref": "AAAAAAFckvvfemg/Pnk="
+											},
+											"visibility": "public",
+											"isStatic": false,
+											"isLeaf": false,
+											"type": "boolean",
+											"isReadOnly": false,
+											"isOrdered": false,
+											"isUnique": false,
+											"direction": "return"
+										}
+									],
+									"concurrency": "sequential",
+									"isQuery": false,
+									"isAbstract": false
+								}
+							],
+							"isAbstract": false,
+							"isFinalSpecialization": false,
+							"isLeaf": false,
+							"isActive": false
+						}
+					],
+					"visibility": "public"
+				},
+				{
+					"_type": "UMLPackage",
+					"_id": "AAAAAAFckvvftGhBtjs=",
+					"_parent": {
+						"$ref": "AAAAAAFF+qBWK6M3Z8Y="
+					},
+					"name": "sample",
+					"ownedElements": [
+						{
+							"_type": "UMLClass",
+							"_id": "AAAAAAFckvvftGhChgU=",
+							"_parent": {
+								"$ref": "AAAAAAFckvvftGhBtjs="
+							},
+							"name": "Main",
+							"documentation": "@project     : Argmagetron\n@file        : Main.java\n@author(s)   : Thomas Léchaire, Kevin Pradervand, Elie N'Djoli Bohulu, Michaël Brouchoud\n@date        : 08.06.2017\n@brief        : MAIN class that run the client",
+							"visibility": "public",
+							"attributes": [
+								{
+									"_type": "UMLAttribute",
+									"_id": "AAAAAAFckvvf22iTuLs=",
+									"_parent": {
+										"$ref": "AAAAAAFckvvftGhChgU="
+									},
+									"name": "primaryStage",
+									"visibility": "package",
+									"isStatic": false,
+									"isLeaf": true,
+									"type": {
+										"$ref": "AAAAAAFckvvf3miwXPU="
+									},
+									"isReadOnly": true,
+									"isOrdered": false,
+									"isUnique": false,
+									"isDerived": false,
+									"aggregation": "none",
+									"isID": false
+								},
+								{
+									"_type": "UMLAttribute",
+									"_id": "AAAAAAFckvvf22iU7cU=",
+									"_parent": {
+										"$ref": "AAAAAAFckvvftGhChgU="
+									},
+									"name": "loginStage",
+									"visibility": "package",
+									"isStatic": false,
+									"isLeaf": false,
+									"type": {
+										"$ref": "AAAAAAFckvvf3miwXPU="
+									},
+									"isReadOnly": false,
+									"isOrdered": false,
+									"isUnique": false,
+									"isDerived": false,
+									"aggregation": "none",
+									"isID": false
+								}
+							],
+							"operations": [
+								{
+									"_type": "UMLOperation",
+									"_id": "AAAAAAFckvvftGhDXbQ=",
+									"_parent": {
+										"$ref": "AAAAAAFckvvftGhChgU="
+									},
+									"name": "start",
+									"documentation": "@fn start\n@brief Methode who start the display\n@param primaryStage\n@throws Exception",
+									"visibility": "public",
+									"isStatic": false,
+									"isLeaf": false,
+									"parameters": [
+										{
+											"_type": "UMLParameter",
+											"_id": "AAAAAAFckvvftGhEkpI=",
+											"_parent": {
+												"$ref": "AAAAAAFckvvftGhDXbQ="
+											},
+											"name": "primaryStage",
+											"visibility": "public",
+											"isStatic": false,
+											"isLeaf": false,
+											"type": {
+												"$ref": "AAAAAAFckvvf3miwXPU="
+											},
+											"isReadOnly": false,
+											"isOrdered": false,
+											"isUnique": false,
+											"direction": "in"
+										},
+										{
+											"_type": "UMLParameter",
+											"_id": "AAAAAAFckvvftGhFIXI=",
+											"_parent": {
+												"$ref": "AAAAAAFckvvftGhDXbQ="
+											},
+											"visibility": "public",
+											"isStatic": false,
+											"isLeaf": false,
+											"type": "void",
+											"isReadOnly": false,
+											"isOrdered": false,
+											"isUnique": false,
+											"direction": "return"
+										}
+									],
+									"concurrency": "sequential",
+									"isQuery": false,
+									"isAbstract": false
+								},
+								{
+									"_type": "UMLOperation",
+									"_id": "AAAAAAFckvvftGhGcxA=",
+									"_parent": {
+										"$ref": "AAAAAAFckvvftGhChgU="
+									},
+									"name": "main",
+									"visibility": "public",
+									"isStatic": true,
+									"isLeaf": false,
+									"parameters": [
+										{
+											"_type": "UMLParameter",
+											"_id": "AAAAAAFckvvftGhHEmM=",
+											"_parent": {
+												"$ref": "AAAAAAFckvvftGhGcxA="
+											},
+											"name": "args",
+											"visibility": "public",
+											"isStatic": false,
+											"isLeaf": false,
+											"type": "String",
+											"multiplicity": "*",
+											"isReadOnly": false,
+											"isOrdered": false,
+											"isUnique": false,
+											"direction": "in"
+										},
+										{
+											"_type": "UMLParameter",
+											"_id": "AAAAAAFckvvftGhIjJg=",
+											"_parent": {
+												"$ref": "AAAAAAFckvvftGhGcxA="
+											},
+											"visibility": "public",
+											"isStatic": false,
+											"isLeaf": false,
+											"type": "void",
+											"isReadOnly": false,
+											"isOrdered": false,
+											"isUnique": false,
+											"direction": "return"
+										}
+									],
+									"concurrency": "sequential",
+									"isQuery": false,
+									"isAbstract": false
+								},
+								{
+									"_type": "UMLOperation",
+									"_id": "AAAAAAFckvvftGhJcrg=",
+									"_parent": {
+										"$ref": "AAAAAAFckvvftGhChgU="
+									},
+									"name": "update",
+									"documentation": "@fn update\n@brief Start the game after login reception\n@param o\n@param arg",
+									"visibility": "public",
+									"isStatic": false,
+									"isLeaf": false,
+									"parameters": [
+										{
+											"_type": "UMLParameter",
+											"_id": "AAAAAAFckvvftGhKpus=",
+											"_parent": {
+												"$ref": "AAAAAAFckvvftGhJcrg="
+											},
+											"name": "o",
+											"visibility": "public",
+											"isStatic": false,
+											"isLeaf": false,
+											"type": {
+												"$ref": "AAAAAAFckvvf3mixNzs="
+											},
+											"isReadOnly": false,
+											"isOrdered": false,
+											"isUnique": false,
+											"direction": "in"
+										},
+										{
+											"_type": "UMLParameter",
+											"_id": "AAAAAAFckvvftGhLjAc=",
+											"_parent": {
+												"$ref": "AAAAAAFckvvftGhJcrg="
+											},
+											"name": "arg",
+											"visibility": "public",
+											"isStatic": false,
+											"isLeaf": false,
+											"type": {
+												"$ref": "AAAAAAFckvvf3Wip/Yk="
+											},
+											"isReadOnly": false,
+											"isOrdered": false,
+											"isUnique": false,
+											"direction": "in"
+										},
+										{
+											"_type": "UMLParameter",
+											"_id": "AAAAAAFckvvftGhMLjE=",
+											"_parent": {
+												"$ref": "AAAAAAFckvvftGhJcrg="
+											},
+											"visibility": "public",
+											"isStatic": false,
+											"isLeaf": false,
+											"type": "void",
+											"isReadOnly": false,
+											"isOrdered": false,
+											"isUnique": false,
+											"direction": "return"
+										}
+									],
+									"concurrency": "sequential",
+									"isQuery": false,
+									"isAbstract": false
+								},
+								{
+									"_type": "UMLOperation",
+									"_id": "AAAAAAFckvvftGhNPpw=",
+									"_parent": {
+										"$ref": "AAAAAAFckvvftGhChgU="
+									},
+									"name": "convertColor",
+									"documentation": "@fn convertColor\n@brief Convert paint.Color object to java.awt.Color\n@param color\n@return java.awt.Color",
+									"visibility": "private",
+									"isStatic": false,
+									"isLeaf": false,
+									"parameters": [
+										{
+											"_type": "UMLParameter",
+											"_id": "AAAAAAFckvvftGhOCf0=",
+											"_parent": {
+												"$ref": "AAAAAAFckvvftGhNPpw="
+											},
+											"name": "color",
+											"visibility": "public",
+											"isStatic": false,
+											"isLeaf": false,
+											"type": {
+												"$ref": "AAAAAAFckvvf3WioiMM="
+											},
+											"isReadOnly": false,
+											"isOrdered": false,
+											"isUnique": false,
+											"direction": "in"
+										},
+										{
+											"_type": "UMLParameter",
+											"_id": "AAAAAAFckvvftmhPBVI=",
+											"_parent": {
+												"$ref": "AAAAAAFckvvftGhNPpw="
+											},
+											"visibility": "public",
+											"isStatic": false,
+											"isLeaf": false,
+											"type": {
+												"$ref": "AAAAAAFckvvf32izd+w="
+											},
+											"isReadOnly": false,
+											"isOrdered": false,
+											"isUnique": false,
+											"direction": "return"
+										}
+									],
+									"concurrency": "sequential",
+									"isQuery": false,
+									"isAbstract": false
+								}
+							],
+							"isAbstract": false,
+							"isFinalSpecialization": false,
+							"isLeaf": false,
+							"isActive": false
+						},
+						{
+							"_type": "UMLClass",
+							"_id": "AAAAAAFckvzFY3kcwDM=",
+							"_parent": {
+								"$ref": "AAAAAAFckvvftGhBtjs="
+							},
+							"name": "Controller",
+							"visibility": "public",
+							"isAbstract": false,
+							"isFinalSpecialization": false,
+							"isLeaf": false,
+							"isActive": false
+						}
+					],
+					"visibility": "public"
+				}
+			],
+			"visibility": "public"
+		}
+	]
+}
