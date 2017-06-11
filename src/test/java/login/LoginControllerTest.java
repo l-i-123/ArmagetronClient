@@ -41,8 +41,8 @@ public class LoginControllerTest {
 
     @Test
     public void checkColor() throws Exception {
-        /*Assert.assertEquals(loginController.checkColor(Color.AQUAMARINE), true);
-        Assert.assertEquals(loginController.checkColor(Color.WHITE), false);*/
+        Assert.assertEquals(loginController.checkColor(Color.AQUAMARINE), true);
+        Assert.assertEquals(loginController.checkColor(Color.WHITE), false);
     }
 
 

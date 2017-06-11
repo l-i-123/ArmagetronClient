@@ -29,7 +29,4 @@ public class ControllerTest {
         /*controller.connect("localhost","Kevin", Color.blue);
         Assert.assertNotNull(controller.getClient());*/
     }
-
-
-
 }

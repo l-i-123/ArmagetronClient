@@ -127,8 +127,8 @@ public class LoginController extends java.util.Observable{
      * @param color
      * @return boolean
      */
-    private boolean checkColor (Color color) {
-        return (color == Color.WHITE);
+    boolean checkColor(Color color) {
+        return !(color == Color.WHITE);
     }
 
     /**
