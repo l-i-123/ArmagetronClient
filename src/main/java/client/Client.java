@@ -49,9 +49,8 @@ public class Client implements Runnable {
     /**
      * @fn connect
      *
-     * @brief methode that connect the client to the server
+     * @brief Connect the client to the server
      *
-     * @param void
      */
     public void connect(){
         try{
@@ -80,10 +79,9 @@ public class Client implements Runnable {
     /**
      * @fn sendData
      *
-     * @brief methode to send Data to the server
+     * @brief Send Data to the server
      *
      * @param o
-     * @param void
      */
     public void sendData(Object o) {
         if(!socket.isConnected()) {
@@ -104,9 +102,8 @@ public class Client implements Runnable {
     /**
      * @fn close
      *
-     * @brief methode that close socket and connection with the server
+     * @brief Close socket and connection with the server
      *
-     * @param void
      */
     public void close(){
         this.keepGoing = false;

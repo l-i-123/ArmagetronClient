@@ -29,7 +29,7 @@ public class Player {
     /**
      * @fn getUniqueId
      *
-     * @brief Methode to get the UniqueID of the player
+     * @brief Get the UniqueID of the player
      *
      * @return UUID
      */
@@ -40,7 +40,7 @@ public class Player {
     /**
      * @fn getColor
      *
-     * @brief Methode that return the color of the player
+     * @brief Return the color of the player
      *
      * @return Color
      */
@@ -51,7 +51,7 @@ public class Player {
     /**
      * @fn getUsername
      *
-     * @brief Methode that return the player's username
+     * @brief Return the player's username
      *
      * @return String
      */
@@ -62,7 +62,7 @@ public class Player {
     /**
      * @fn getPosition
      *
-     * @brief Methode that return the player's position
+     * @brief Return the player's position
      *
      * @return Point
      */
@@ -73,7 +73,7 @@ public class Player {
     /**
      * @fn isAlive
      *
-     * @brief Methode that return the player state (alive or not)
+     * @brief Return the player state (alive or not)
      *
      * @return boolean
      */

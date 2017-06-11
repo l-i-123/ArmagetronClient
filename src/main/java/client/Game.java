@@ -23,9 +23,8 @@ public class Game {
     /**
      * @fn getPlayers
      *
-     * @brief methode that return a list of all players
+     * @brief Return a list of all players
      *
-     * @param ArrayList<Player>
      */
     public ArrayList<Player> getPlayers() {
         return players;
@@ -34,10 +33,9 @@ public class Game {
     /**
      * @fn add
      *
-     * @brief methode to add a player in the players list
+     * @brief Add a player in the players list
      *
      * @param player
-     * @param void
      */
     public void add(Player player) {
         this.players.add(player);
@@ -46,10 +44,9 @@ public class Game {
     /**
      * @fn setPlayers
      *
-     * @brief methode that create the players list from the playersData send from the server
+     * @brief Create the players list from the playersData send from the server
      *
      * @param playersData
-     * @param void
      */
     public void setPlayers(ArrayList<PlayerData> playersData) {
         this.players.clear();
