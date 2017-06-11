@@ -73,7 +73,7 @@ public class Controller {
      * @param userName
      * @param userColor
      */
-    public void init(String serverIP, String userName, Color userColor) {
+    void init(String serverIP, String userName, Color userColor) {
 
         this.game = new Game();
         this.connect(serverIP,userName,userColor);
@@ -100,7 +100,7 @@ public class Controller {
      * @param userName
      * @param userColor
      */
-    public void connect(String serverIP, String userName, Color userColor) {
+    private void connect(String serverIP, String userName, Color userColor) {
         client = new Client(serverIP, 1500, userName, this, userColor);
     }
 
@@ -114,11 +114,9 @@ public class Controller {
     public void onKeyPressed(KeyEvent keyEvent) {
         if(keyEvent.getCode() == KeyCode.LEFT) {
             client.sendData(new ClientStatData(ClientStatData.TURN_LEFT, player.getUniqueId()));
-            System.out.println("clique gauche");
         }
         else if(keyEvent.getCode() == KeyCode.RIGHT) {
             client.sendData(new ClientStatData(ClientStatData.TURN_RIGHT, player.getUniqueId()));
-            System.out.println("Clique droit");
         }
     }
     
@@ -177,7 +175,7 @@ public class Controller {
                     setPlayersInformation = true;
                 }
                 if(endGame){
-                    setClassement(((GameData) o).getPlayersData());
+                    setRanking(((GameData) o).getPlayersData());
                 }
                 this.updatePosition();
             }
@@ -193,7 +191,7 @@ public class Controller {
      * @brief Textual display about the start of the game
      *
      */
-    public void showStartGame() {
+    private void showStartGame() {
         guiDisplay.setText("The game will begin get ready !!!");
     }
 
@@ -203,7 +201,7 @@ public class Controller {
      * @brief Textual display about the end of a game
      *
      */
-    public void showEndGame(){
+    private void showEndGame(){
         guiDisplay.setText("Game over !!!");
     }
 
@@ -219,7 +217,7 @@ public class Controller {
                 Node n = getNodeByRowColumnIndex(player.getPosition().x, player.getPosition().y);
                 if (n != null) {
                     if(player.isAlive()) {
-                        n.setStyle("-fx-background-color: " + this.convertColortoHex(player.getColor()) + ";");
+                        n.setStyle("-fx-background-color: " + this.convertColorToHex(player.getColor()) + ";");
                     }
                     else {
                         n.setStyle("-fx-background-image: url('/img/skull.png');" +
@@ -237,12 +235,12 @@ public class Controller {
      *
      * @brief countdown for the begin of the game
      *
-     * @param nbMilliseconde
+     * @param nbMilliseconds
      */
-    public void countdown(short nbMilliseconde){
+    private void countdown(short nbMilliseconds){
         new Thread(){
             public void run(){
-                int nbSeconde = nbMilliseconde / 1000;
+                int nbSeconde = nbMilliseconds / 1000;
                 int compteur = 0;
                 while(compteur < nbSeconde){
                     try{
@@ -265,28 +263,28 @@ public class Controller {
      * @brief Players color setting
      *
      */
-    public void setColorPlayers(){
+    private void setColorPlayers(){
         Iterator<Circle> playerColorIterator = colorPlayers.iterator();
         Iterator<Label> playerLabelIterator = labelPlayers.iterator();
 
         for(final Player player: game.getPlayers()){
             if(playerColorIterator.hasNext() && playerLabelIterator.hasNext()){
-                Platform.runLater(()->playerColorIterator.next().setFill(Paint.valueOf(this.convertColortoHex(player.getColor()))));
+                Platform.runLater(()->playerColorIterator.next().setFill(Paint.valueOf(this.convertColorToHex(player.getColor()))));
                 Platform.runLater(()->playerLabelIterator.next().setText(player.getUsername()));
             }
         }
     }
 
     /**
-     * @fn setClassement
+     * @fn setRanking
      *
-     * @brief Classement display
+     * @brief Ranking display
      *
      * @param players liste des players
      */
-    private void setClassement(ArrayList<PlayerData> players){
+    private void setRanking(ArrayList<PlayerData> players){
         int position = 0;
-        String texteClassement = "";
+        String textRanking = "";
         for(int i = 0; i < players.size();++i) {
             System.out.println(players.get(i).getUniqueId());
             System.out.println(player.getUniqueId());
@@ -296,35 +294,35 @@ public class Controller {
         }
         switch (position){
             case 0:
-                texteClassement = "1st";
+                textRanking = "1st";
                 guiDisplay.setText("HOUAA! What an amazing pilot!");
                 break;
             case 1:
-                texteClassement = "2nd";
+                textRanking = "2nd";
                 guiDisplay.setText("Almost there!");
                 break;
             case 2:
-                texteClassement = "3rd";
+                textRanking = "3rd";
                 guiDisplay.setText("Good Try.");
                 break;
             case 3:
-                texteClassement = "4th";
+                textRanking = "4th";
                 guiDisplay.setText("Shit happens...");
                 break;
         }
-        String finalTexteClassement = texteClassement;
-        Platform.runLater(()->classement.setText(finalTexteClassement));
+        String finalTextRanking = textRanking;
+        Platform.runLater(()->classement.setText(finalTextRanking));
     }
 
     /**
-     * @fn convertColorHex
+     * @fn convertColorToHex
      *
      * @brief convert Color object to String
      *
      * @param color
      * @return String
      */
-    private String convertColortoHex(Color color) {
+    private String convertColorToHex(Color color) {
         return String.format("#%06x", color.getRGB() & 0x00FFFFFF);
     }
 }

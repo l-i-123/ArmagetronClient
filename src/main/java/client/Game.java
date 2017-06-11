@@ -38,7 +38,7 @@ public class Game {
      *
      * @param player
      */
-    public void add(Player player) {
+    void add(Player player) {
         this.players.add(player);
     }
 

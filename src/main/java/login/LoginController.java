@@ -81,12 +81,8 @@ public class LoginController extends java.util.Observable{
                 }else{
                     errorMessage.setText("Pseudo non autorise : entre 3 et 12 characteres svp");
                 }
-                System.out.println("fin du clic");
-                System.out.println(formOK);
             }
         });
-
-        System.out.println("fin fin du clic");
     }
 
     /**
@@ -131,7 +127,7 @@ public class LoginController extends java.util.Observable{
      * @param color
      * @return boolean
      */
-    boolean checkColor (Color color) {
+    private boolean checkColor (Color color) {
         return (color == Color.WHITE);
     }
 

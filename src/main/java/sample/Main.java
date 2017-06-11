@@ -22,8 +22,8 @@ import java.util.Observer;
 
 public class Main extends Application implements Observer{
 
-    final Stage primaryStage = new Stage();
-    Stage loginStage = new Stage();
+    private final Stage primaryStage = new Stage();
+    private Stage loginStage = new Stage();
 
     /**
      *@fn start
