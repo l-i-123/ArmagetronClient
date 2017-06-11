@@ -28,7 +28,7 @@ public class Main extends Application implements Observer{
     /**
      *@fn start
      *
-     *@brief Methode who start the display
+     *@brief start the display
      *
      * @param primaryStage
      * @throws Exception

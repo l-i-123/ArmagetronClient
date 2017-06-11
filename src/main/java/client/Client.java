@@ -77,7 +77,7 @@ public class Client implements Runnable {
     /**
      * @fn void sendData(Object o)
      *
-     * @brief method to send Data to the server
+     * @brief Send Data to the server
      *
      * @param o The object to send
      */
@@ -100,7 +100,8 @@ public class Client implements Runnable {
     /**
      * @fn private void close()
      *
-     * @brief methode that close socket and connection with the server
+     * @brief Close socket and connection with the server
+     *
      */
     private void close(){
         this.keepGoing = false;

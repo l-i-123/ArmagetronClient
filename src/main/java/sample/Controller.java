@@ -67,7 +67,7 @@ public class Controller {
     /**
      * @fn init
      *
-     * @brief Initialisation methode
+     * @brief Initialisation method
      *
      * @param serverIP
      * @param userName
@@ -94,7 +94,7 @@ public class Controller {
     /**
      * @fn connect
      *
-     * @brief Connection methode between client and server
+     * @brief Connection between client and server
      *
      * @param serverIP
      * @param userName
@@ -107,7 +107,7 @@ public class Controller {
     /**
      * @fn onKeyPressed
      *
-     * @brief methode to send to key pressed to the client object
+     * @brief send to key pressed to the client object
      *
      * @param keyEvent
      */
@@ -125,7 +125,7 @@ public class Controller {
     /**
      * @fn getNodeByRowColumnIndex
      *
-     * @brief Methode who return a selected node with the axe x and y
+     * @brief return a selected node with the axe x and y
      *
      * @param row
      * @param column
@@ -152,7 +152,7 @@ public class Controller {
     /**
      * @fn processData
      *
-     * @brief Methode to receive the object from the client
+     * @brief receive the objects from the client
      *
      * @param o
      */
@@ -210,7 +210,7 @@ public class Controller {
     /**
      * @fn updatePosition
      *
-     *@brief Methode who update the position's players
+     *@brief update the position's players
      *
      */
     private void updatePosition() {
@@ -319,7 +319,7 @@ public class Controller {
     /**
      * @fn convertColorHex
      *
-     * @brief Methode to convert Color object to String
+     * @brief convert Color object to String
      *
      * @param color
      * @return String
