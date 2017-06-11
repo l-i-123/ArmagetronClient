@@ -100,7 +100,7 @@ public class Controller {
      * @param userName
      * @param userColor
      */
-    private void connect(String serverIP, String userName, Color userColor) {
+    public void connect(String serverIP, String userName, Color userColor) {
         client = new Client(serverIP, 1500, userName, this, userColor);
     }
 
@@ -312,6 +312,15 @@ public class Controller {
         }
         String finalTextRanking = textRanking;
         Platform.runLater(()->classement.setText(finalTextRanking));
+    }
+
+    /**
+     * @fn getClient
+     *
+     * @brief Return the client
+     */
+    public Client getClient(){
+        return client;
     }
 
     /**

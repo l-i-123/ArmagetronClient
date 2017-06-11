@@ -11,10 +11,8 @@ package sample;
 import org.junit.Test;
 import org.junit.Assert;
 
-
 import java.awt.*;
 
-import static org.junit.Assert.*;
 
 public class ControllerTest {
     private Controller controller = new Controller();
@@ -26,7 +24,7 @@ public class ControllerTest {
 
     @Test
     public void connect() throws Exception {
-        /*controller.connect("localhost","Kevin", Color.blue);
-        Assert.assertNotNull(controller.getClient());*/
+        controller.connect("localhost","Kevin", Color.blue);
+        Assert.assertNotNull(controller.getClient());
     }
 }
