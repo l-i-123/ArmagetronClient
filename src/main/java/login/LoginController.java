@@ -52,14 +52,10 @@ public class LoginController extends java.util.Observable{
 
         startButton.setOnAction(new EventHandler<ActionEvent>() {
             public void handle(ActionEvent event) {
-                System.out.println("tu as clique sur start!");
 
                 userName = nickName.getText();
-                System.out.println(userName);
                 serverIP = serverIp.getText();
-                System.out.println(serverIP);
                 userColor = colorChoice.getValue();
-                System.out.println(userColor);
 
                 // test d'adresse IP valable
                 if (checkName(userName)){
@@ -127,7 +123,7 @@ public class LoginController extends java.util.Observable{
      * @param color
      * @return boolean
      */
-    boolean checkColor(Color color) {
+    private boolean checkColor (Color color) {
         return !(color == Color.WHITE);
     }
 

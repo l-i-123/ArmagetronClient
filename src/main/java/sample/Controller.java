@@ -286,8 +286,6 @@ public class Controller {
         int position = 0;
         String textRanking = "";
         for(int i = 0; i < players.size();++i) {
-            System.out.println(players.get(i).getUniqueId());
-            System.out.println(player.getUniqueId());
             if (players.get(i).getUniqueId().equals(player.getUniqueId())) {
                 position = i;
             }
